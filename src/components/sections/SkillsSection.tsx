@@ -18,13 +18,13 @@ export default function SkillsSection() {
     >
       {/* Section Header */}
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mb-20 text-center">
-        <h2 className="text-3xl sm:text-4xl md:text-6xl font-semibold text-foreground dark:text-foreground mb-6 leading-tight">
+        <h2 className="text-3xl sm:text-4xl md:text-6xl font-light text-foreground dark:text-foreground mb-6 leading-tight">
           Expertise Across Modern{" "}
-          <span className="text-primary dark:text-primary font-bold">
+          <span className="text-primary dark:text-primary font-medium">
             Technologies
           </span>
           💻 &{" "}
-          <span className="text-primary dark:text-primary font-bold">
+          <span className="text-primary dark:text-primary font-medium">
             Frameworks
           </span>
         </h2>
@@ -162,7 +162,7 @@ function SkillCard({
 
       {/* Enhanced Name Label - Shows on hover */}
       <div
-        className={`absolute -bottom-8 left-1/2 -translate-x-1/2 transition-all duration-300 z-20 ${
+        className={`absolute -bottom-6 sm:-bottom-8 left-1/2 -translate-x-1/2 transition-all duration-300 z-20 ${
           showName
             ? "opacity-100 translate-y-0 pointer-events-auto"
             : "opacity-0 translate-y-2 pointer-events-none"

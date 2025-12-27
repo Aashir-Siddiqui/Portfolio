@@ -2,14 +2,24 @@
 
 import { aboutData } from "@/lib/data";
 import Image from "next/image";
-import { Check } from "lucide-react";
-import { ShineButton } from "@/components/lightswind/shine-button";
+import { Check, SendHorizontal } from "lucide-react";
+import AnimatedButton from "../AnimatedButton";
 
 export default function AboutSection() {
+  const handleWhatsAppContact = () => {
+    const phoneNumber = "923701082668";
+    const message =
+      "Hi Aashir! I'm interested in discussing a project with you.";
+    const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
+      message
+    )}`;
+    window.open(whatsappURL, "_blank");
+  };
+
   return (
     <div
       id="about"
-      className="min-h-screen bg-background dark:bg-background pt-32 pb-20 px-4"
+      className="min-h-screen bg-background dark:bg-background py-20 px-4"
     >
       <div className="max-w-7xl mx-auto">
         {/* Page Header */}
@@ -63,7 +73,11 @@ export default function AboutSection() {
                 </span>
                 {" — "}
                 <span className="text-primary dark:text-primary">
-                  Developer & Creative Engineer
+                  Developer{" "}
+                </span>
+                &{" "}
+                <span className="text-primary dark:text-primary">
+                  Creative Engineer
                 </span>
               </h3>
 
@@ -91,7 +105,7 @@ export default function AboutSection() {
                     />
 
                     {/* Specialization Text */}
-                    <span className="text-sm text-foreground dark:text-foreground font-medium group-hover:text-primary dark:group-hover:text-primary transition-colors duration-300">
+                    <span className="text-sm text-foreground dark:text-foreground font-normal group-hover:text-primary dark:group-hover:text-primary transition-colors duration-300">
                       {spec}
                     </span>
                   </div>
@@ -101,25 +115,13 @@ export default function AboutSection() {
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
-              <ShineButton
-                label="View Services"
-                onClick={() =>
-                  document
-                    .getElementById("services")
-                    ?.scrollIntoView({ behavior: "smooth" })
-                }
+              <AnimatedButton
+                label="Hire Now"
+                icon={SendHorizontal}
+                iconSize={18}
                 size="lg"
+                onClick={handleWhatsAppContact}
               />
-              <button
-                onClick={() =>
-                  document
-                    .getElementById("contact")
-                    ?.scrollIntoView({ behavior: "smooth" })
-                }
-                className="px-8 py-4 border border-border dark:border-border text-foreground dark:text-foreground rounded-xl font-semibold hover:bg-surface dark:hover:bg-surface transition-all duration-500 transform hover:scale-105 text-center"
-              >
-                Hire Now
-              </button>
             </div>
           </div>
         </div>

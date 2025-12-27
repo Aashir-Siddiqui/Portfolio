@@ -1,10 +1,11 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { Calendar } from "lucide-react";
+import { Contact } from "lucide-react";
 import Image from "next/image";
 import logo from "../../public/images/logo.png";
 import { ToggleTheme } from "../components/lightswind/toggle-theme";
+import AnimatedButton from "./AnimatedButton";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -22,8 +23,8 @@ export default function Navbar() {
         "skills",
         "services",
         "process",
+        "projects",
         "faq",
-        "links",
         "contact",
       ];
       const scrollPosition = window.scrollY + 100;
@@ -54,8 +55,8 @@ export default function Navbar() {
     { name: "Skills", href: "skills" },
     { name: "Services", href: "services" },
     { name: "Process", href: "process" },
+    { name: "Projects", href: "projects" },
     { name: "FAQ", href: "faq" },
-    { name: "Links", href: "links" },
   ];
 
   const scrollToSection = (sectionId: string) => {
@@ -92,7 +93,7 @@ export default function Navbar() {
           >
             <button
               onClick={() => scrollToSection("home")}
-              className="flex items-center group focus:outline-none space-x-1"
+              className="flex items-center group focus:outline-none space-x-1 cursor-pointer"
             >
               <div
                 className={`transition-all duration-500 ease-out group-hover:scale-105 ${
@@ -121,7 +122,7 @@ export default function Navbar() {
                 <button
                   key={link.name}
                   onClick={() => scrollToSection(link.href)}
-                  className={`relative px-4 py-2 rounded-xl font-medium transition-all duration-300 transform hover:scale-105 group ${
+                  className={`relative cursor-pointer px-4 py-2 rounded-xl font-medium transition-all duration-300 transform hover:scale-105 group ${
                     activeSection === link.href
                       ? "text-primary"
                       : "text-muted hover:text-foreground"
@@ -155,23 +156,16 @@ export default function Navbar() {
               <ToggleTheme
                 animationType="circle-spread"
                 duration={500}
-                className="p-2.5 rounded-xl transition-all duration-300 transform hover:scale-110 text-muted hover:text-foreground hover:bg-surface/70"
+                className="p-2.5 rounded-xl transition-all duration-300 cursor-pointer transform hover:scale-110 text-muted hover:text-foreground hover:bg-surface/70"
               />
 
-              <button
+              <AnimatedButton
+                label="Contact"
+                icon={Contact}
+                iconSize={18}
                 onClick={() => scrollToSection("contact")}
-                className={`relative flex items-center space-x-2 px-6 py-2.5 bg-primary hover:bg-primary-hover text-background rounded-xl font-semibold overflow-hidden group transition-all duration-500 transform hover:scale-105 shadow-lg hover:shadow-xl hover:shadow-primary/40 ${
-                  scrolled ? "text-sm" : "text-base"
-                }`}
-              >
-                <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-1000" />
-
-                <Calendar
-                  size={18}
-                  className="relative z-10 transition-transform duration-300 group-hover:rotate-12"
-                />
-                <span className="relative z-10">Contact</span>
-              </button>
+                size="md"
+              />
             </div>
 
             <button
@@ -181,7 +175,7 @@ export default function Navbar() {
               <div className="relative w-6 h-6">
                 <span
                   className={`absolute top-1.5 left-0 w-full h-0.5 bg-current rounded-full transition-all duration-300 ${
-                    mobileMenuOpen ? "rotate-45 top-3" : ""
+                    mobileMenuOpen ? "rotate-45 translate-y-1.5" : ""
                   }`}
                 />
                 <span
@@ -191,7 +185,7 @@ export default function Navbar() {
                 />
                 <span
                   className={`absolute top-4.5 left-0 w-full h-0.5 bg-current rounded-full transition-all duration-300 ${
-                    mobileMenuOpen ? "-rotate-45 top-3" : ""
+                    mobileMenuOpen ? "-rotate-45 -translate-y-1.5" : ""
                   }`}
                 />
               </div>
@@ -243,13 +237,13 @@ export default function Navbar() {
                   className="p-3 rounded-xl transition-all duration-300 transform hover:scale-105 text-muted hover:text-foreground hover:bg-surface/70"
                 />
               </div>
-              <button
+              <AnimatedButton
+                label="Contact"
+                icon={Contact}
+                iconSize={18}
                 onClick={() => scrollToSection("contact")}
-                className="flex-1 flex items-center justify-center space-x-2 px-4 py-3 bg-primary hover:bg-primary-hover text-background rounded-xl font-semibold hover:shadow-lg hover:shadow-primary/30 transition-all duration-300 transform hover:scale-105"
-              >
-                <Calendar size={18} />
-                <span>Contact</span>
-              </button>
+                size="lg"
+              />
             </div>
           </div>
         </div>

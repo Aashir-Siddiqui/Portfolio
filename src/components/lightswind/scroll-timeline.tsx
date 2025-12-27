@@ -177,10 +177,10 @@ export const ScrollTimeline = ({
   };
 
   const getCardClasses = (index: number) => {
-    const baseClasses = "relative z-30 rounded-lg transition-all duration-300";
+    const baseClasses = "relative z-30 rounded-xl transition-all duration-300";
     const variantClasses = {
-      default: "bg-card border shadow-sm",
-      elevated: "bg-card border border-border/40 shadow-md",
+      default: "bg-card border",
+      elevated: "bg-card border border-border/40",
       outlined: "bg-card/50 backdrop-blur border-2 border-primary/20",
       filled: "bg-primary/10 border border-primary/30",
     };
@@ -331,7 +331,7 @@ export const ScrollTimeline = ({
                       animate={
                         index <= activeIndex
                           ? {
-                              scale: [1, 1.3, 1],
+                              // scale: [1, 1.3, 1],
                               boxShadow: [
                                 "0 0 0px rgba(99,102,241,0)",
                                 "0 0 12px rgba(99,102,241,0.6)",
@@ -356,10 +356,10 @@ export const ScrollTimeline = ({
                     viewport={{ once: false, margin: "-100px" }}
                     style={parallaxIntensity > 0 ? { y: yOffset } : undefined}
                   >
-                    <Card className="bg-background border">
+                    <Card>
                       <CardContent className="p-6">
                         {dateFormat === "badge" ? (
-                          <div className="flex items-center mb-2">
+                          <div className="flex items-center gap-2 mb-2">
                             {event.icon || (
                               <Calendar className="h-4 w-4 mr-2 text-primary" />
                             )}

@@ -65,7 +65,7 @@ export const allSkills = [
   { id: "38", name: "Npm", logo: "/skills/npm.svg" },
   { id: "39", name: "Pnpm", logo: "/skills/pnpm.svg" },
   { id: "40", name: "Git", logo: "/skills/git.svg" },
-  { id: "41", name: "Yarn", logo: "/skills/yarn.svg" },
+  { id: "41", name: "Twilio", logo: "/skills/twilio.svg" },
   { id: "42", name: "Github", logo: "/skills/github.svg" },
 ];
 
@@ -203,6 +203,213 @@ export const processData = {
       title: "Maintenance & Support",
       description:
         "Providing ongoing updates, improvements, and support to keep the product reliable and scalable.",
+    },
+  ],
+};
+
+export const faqsData = {
+  heading: "Frequently Asked Questions",
+  subHeading:
+    "Clear answers to common questions about my services, workflow, and technical expertise.",
+
+  faqs: [
+    {
+      id: 1,
+      question: "What type of projects do you work on?",
+      answer:
+        "I work on full-stack web applications, SaaS platforms, APIs, dashboards, and custom software solutions using modern technologies.",
+    },
+    {
+      id: 2,
+      question: "Do you provide complete end-to-end development?",
+      answer:
+        "Yes. I handle the complete development lifecycle — from planning and design to development, deployment, and post-launch support.",
+    },
+    {
+      id: 3,
+      question: "Which technologies do you specialize in?",
+      answer:
+        "I specialize in React, Next.js, TypeScript, Node.js, Python, FastAPI, GraphQL, and modern relational and NoSQL databases.",
+    },
+    {
+      id: 4,
+      question: "Can you build scalable and production-ready systems?",
+      answer:
+        "Absolutely. I follow clean architecture, scalable system design, and best practices to ensure applications are secure, performant, and future-proof.",
+    },
+    {
+      id: 5,
+      question: "Do you offer API development and integrations?",
+      answer:
+        "Yes. I build and integrate REST and GraphQL APIs, including authentication, third-party services, and complex backend logic.",
+    },
+    {
+      id: 6,
+      question: "How do you ensure code quality?",
+      answer:
+        "I focus on clean, maintainable code, proper testing, and performance optimization to deliver reliable and high-quality solutions.",
+    },
+    {
+      id: 7,
+      question: "Do you deploy and maintain projects?",
+      answer:
+        "Yes. I deploy applications on platforms like Vercel and Netlify, and provide ongoing maintenance, updates, and technical support.",
+    },
+    {
+      id: 8,
+      question: "Are you available for long-term or remote work?",
+      answer:
+        "Yes. I am open to long-term collaborations, remote projects, and ongoing development partnerships.",
+    },
+  ],
+};
+
+export const projectsData = {
+  heading: "Featured Projects",
+  subHeading:
+    "A selection of real-world projects showcasing my expertise in full-stack development, AI integration, and modern UI engineering.",
+
+  projects: [
+    {
+      id: 1,
+      title: "MediVault AI",
+      category: "AI-Powered Healthcare Platform",
+      description:
+        "An AI-driven healthcare platform that securely manages medical records, processes documents, and extracts insights using OCR and generative AI.",
+      mediaType: "video" as const,
+      mediaUrl:
+        '<iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7400168869736382464?collapsed=1" height="542" width="504" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>',
+      thumbnailUrl: "/projects/medivault-ai.png",
+      liveUrl:
+        "https://www.linkedin.com/posts/aashir-siddiqui-88a676394_medivaultai-healthcareinnovation-ai-activity-7400170217194102784-TbUH?utm_source=share&utm_medium=member_desktop",
+      githubUrl: "https://github.com/Aashir-Siddiqui/MediVaultAI",
+      techStack: [
+        "React 19",
+        "Redux Toolkit",
+        "Tailwind CSS",
+        "Framer Motion",
+        "Node.js",
+        "Express.js",
+        "MongoDB",
+        "JWT Authentication",
+        "Google Generative AI",
+        "Tesseract.js",
+        "Cloudinary",
+      ],
+      type: "Full-Stack + AI",
+    },
+
+    {
+      id: 2,
+      title: "Flash Chat",
+      category: "Real-Time Chat Application",
+      description:
+        "A real-time chat application with instant messaging, authentication, media sharing, and live updates using WebSockets.",
+      mediaType: "video" as const,
+      mediaUrl:
+        '<iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7389770231876890624?collapsed=1" height="542" width="504" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>',
+      thumbnailUrl: "/projects/flashchat.png",
+      liveUrl:
+        "https://www.linkedin.com/posts/aashir-siddiqui-88a676394_mern-socketio-fullstackdeveloper-activity-7389770598639611904-j7kJ?utm_source=share&utm_medium=member_desktop",
+      githubUrl: "https://github.com/Aashir-Siddiqui/Flash-Chat",
+      techStack: [
+        "React",
+        "Tailwind CSS",
+        "Radix UI",
+        "Zustand",
+        "Socket.IO",
+        "Node.js",
+        "Express.js",
+        "MongoDB",
+        "JWT Authentication",
+      ],
+      type: "Full-Stack",
+    },
+
+    {
+      id: 3,
+      title: "Agency AI",
+      category: "AI Agency Landing Page",
+      description:
+        "A modern AI agency landing page focused on performance, smooth animations, and conversion-driven UI design.",
+      mediaType: "image" as const,
+      mediaUrl: "/projects/agency-ai.png",
+      liveUrl: "https://agency-ai-aashir.netlify.app/",
+      githubUrl: "https://github.com/Aashir-Siddiqui/Agency-Ai",
+      techStack: [
+        "React",
+        "Tailwind CSS",
+        "Motion",
+        "Vite",
+        "Responsive UI",
+        "Modern UX",
+        "Aceternity UI"
+      ],
+      type: "Frontend",
+    },
+
+    {
+      id: 4,
+      title: "Atriom Technologies",
+      category: "Corporate Website & Brand Platform",
+      description:
+        "A premium corporate website with immersive animations, 3D visuals, and interactive user experiences.",
+      mediaType: "image" as const,
+      mediaUrl: "/projects/atriom-tech.png",
+      liveUrl: "https://atriom-technologies.vercel.app/",
+      githubUrl: "https://github.com/Aashir-Siddiqui/Atriom-Technologies",
+      techStack: [
+        "Next.js",
+        "React",
+        "Three.js",
+        "React Three Fiber",
+        "GSAP",
+        "Framer Motion",
+        "Tailwind CSS",
+      ],
+      type: "Frontend / UI Engineering",
+    },
+
+    {
+      id: 5,
+      title: "Currency Converter",
+      category: "Finance Utility Application",
+      description:
+        "A fast and intuitive currency converter with real-time exchange rates and animated UI interactions.",
+      mediaType: "image" as const,
+      mediaUrl: "/projects/currency-converter.png",
+      liveUrl: "https://currencyconverter-aashir.netlify.app/",
+      githubUrl: "https://github.com/Aashir-Siddiqui/Currency-Converter",
+      techStack: [
+        "React",
+        "Tailwind CSS",
+        "Radix UI",
+        "Framer Motion",
+        "Axios",
+        "API Integration",
+      ],
+      type: "Frontend",
+    },
+
+    {
+      id: 6,
+      title: "Todo Master",
+      category: "Task Management Application",
+      description:
+        "A full-stack task management application with authentication, protected routes, and persistent storage.",
+      mediaType: "image" as const,
+      mediaUrl: "/projects/todo-master.png",
+      liveUrl: "https://todomaster-aashir.vercel.app/",
+      githubUrl: "https://github.com/Aashir-Siddiqui/Todo-Master",
+      techStack: [
+        "Next.js",
+        "React",
+        "Tailwind CSS",
+        "MongoDB",
+        "JWT Authentication",
+        "CRUD Operations",
+      ],
+      type: "Full-Stack",
     },
   ],
 };

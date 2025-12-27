@@ -39,7 +39,7 @@ export default function ProcessSection() {
   return (
     <section
       id="process"
-      className="min-h-screen py-20 bg-surface/30 dark:bg-surface/30"
+      className="min-h-screen py-20 bg-background dark:bg-background"
     >
       <div className="max-w-7xl mx-auto px-4">
         <ScrollTimeline

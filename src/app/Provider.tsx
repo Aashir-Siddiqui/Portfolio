@@ -1,5 +1,6 @@
 "use client";
 
+import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import React, { useEffect, useState } from "react";
 
@@ -33,6 +34,7 @@ function Provider({ children }: any) {
     <>
       <Navbar />
       {children}
+      <Footer />
     </>
   );
 }
