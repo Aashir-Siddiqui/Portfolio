@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from "react";
 import { Contact } from "lucide-react";
 import Image from "next/image";
-import logo from "../../public/images/logo.png";
+import logo from "../../public/logo.png";
 import { ToggleTheme } from "../components/lightswind/toggle-theme";
 import AnimatedButton from "./AnimatedButton";
 

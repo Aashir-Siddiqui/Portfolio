@@ -92,7 +92,7 @@ export function ShinyText({
 
   // Use theme colors from CSS variables
   const defaultBaseColor = "var(--foreground)";
-  const defaultShineColor = "var(--muted)";
+  const defaultShineColor = "var(--white)";
 
   const finalBaseColor = baseColor || defaultBaseColor;
   const finalShineColor = shineColor || defaultShineColor;

@@ -3,7 +3,8 @@ export const aboutData = {
     name: "Aashir Siddiqui",
     role: "Full-Stack Developer & Creative Engineer",
     description: [
-      "Full-Stack Developer crafting scalable, high-performance web applications with clean architecture.",
+      "I’m a Full-Stack Developer focused on building fast, scalable, and production-ready web applications. I have hands-on experience across the complete product lifecycle from designing intuitive, responsive user interfaces to architecting robust backend systems and APIs.",
+      ,
     ],
   },
 
@@ -343,7 +344,7 @@ export const projectsData = {
         "Vite",
         "Responsive UI",
         "Modern UX",
-        "Aceternity UI"
+        "Aceternity UI",
       ],
       type: "Frontend",
     },

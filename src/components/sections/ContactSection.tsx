@@ -12,13 +12,12 @@ import {
   User,
   MessageSquare,
   FileText,
-  CheckCircle2,
-  AlertCircle,
   Loader2,
 } from "lucide-react";
 import ShinyText from "@/components/lightswind/shiny-text";
 import AnimatedButton from "@/components/AnimatedButton";
 import Link from "next/link";
+import toast, { Toaster } from "react-hot-toast";
 
 // Social Links Data
 const socialLinks = [
@@ -74,10 +73,7 @@ export default function ContactSection() {
     message: "",
   });
 
-  const [status, setStatus] = useState<
-    "idle" | "loading" | "success" | "error"
-  >("idle");
-  const [errorMessage, setErrorMessage] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   // Handle input changes
   const handleChange = (
@@ -91,7 +87,7 @@ export default function ContactSection() {
 
   // Handle WhatsApp contact
   const handleWhatsApp = () => {
-    const phoneNumber = "923001234567";
+    const phoneNumber = "923362746653";
     const message = "Hi Aashir! I'd like to discuss a project with you.";
     const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
       message
@@ -102,8 +98,10 @@ export default function ContactSection() {
   // Handle form submission
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setStatus("loading");
-    setErrorMessage("");
+    setIsLoading(true);
+
+    // Show loading toast
+    const loadingToast = toast.loading("Sending your message...");
 
     try {
       const response = await fetch("https://api.web3forms.com/submit", {
@@ -125,283 +123,328 @@ export default function ContactSection() {
       const result = await response.json();
 
       if (result.success) {
-        setStatus("success");
+        // Dismiss loading toast
+        toast.dismiss(loadingToast);
+
+        // Show success toast
+        toast.success("Message sent successfully! I'll get back to you soon.", {
+          duration: 5000,
+          position: "top-center",
+          style: {
+            background: "#10b981",
+            color: "#fff",
+            padding: "16px",
+            borderRadius: "12px",
+            fontSize: "14px",
+            fontWeight: "500",
+          },
+          icon: "✅",
+        });
+
+        // Reset form
         setFormData({ name: "", email: "", subject: "", message: "" });
-        // Reset success message after 5 seconds
-        setTimeout(() => setStatus("idle"), 5000);
       } else {
-        setStatus("error");
-        setErrorMessage(result.message || "Something went wrong!");
+        // Dismiss loading toast
+        toast.dismiss(loadingToast);
+
+        // Show error toast
+        toast.error(result.message || "Something went wrong!", {
+          duration: 5000,
+          position: "top-center",
+          style: {
+            background: "#ef4444",
+            color: "#fff",
+            padding: "16px",
+            borderRadius: "12px",
+            fontSize: "14px",
+            fontWeight: "500",
+          },
+          icon: "❌",
+        });
       }
     } catch (error) {
-      setStatus("error");
-      setErrorMessage("Failed to send message. Please try again.");
+      // Dismiss loading toast
+      toast.dismiss(loadingToast);
+
+      // Show error toast
+      toast.error("Failed to send message. Please try again.", {
+        duration: 5000,
+        position: "top-center",
+        style: {
+          background: "#ef4444",
+          color: "#fff",
+          padding: "16px",
+          borderRadius: "12px",
+          fontSize: "14px",
+          fontWeight: "500",
+        },
+        icon: "❌",
+      });
+    } finally {
+      setIsLoading(false);
     }
   };
 
   return (
-    <section
-      id="contact"
-      className="min-h-screen py-20 bg-background dark:bg-background"
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
-        <div className="text-center mb-16">
-          {/* Badge */}
-          <div className="inline-flex items-center space-x-2 px-5 py-2.5 mb-8 relative group">
-            <div className="absolute inset-0 bg-surface/80 dark:bg-surface/80 rounded-full border backdrop-blur-xl border-border"></div>
-            <div className="relative flex items-center space-x-2">
-              <span className="relative flex h-2.5 w-2.5">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-primary"></span>
+    <>
+      {/* Toast Container */}
+      <Toaster
+        position="top-center"
+        reverseOrder={false}
+        gutter={8}
+        toastOptions={{
+          duration: 4000,
+          style: {
+            borderRadius: "12px",
+            fontSize: "14px",
+          },
+        }}
+      />
+
+      <section
+        id="contact"
+        className="min-h-screen py-20 bg-background dark:bg-background"
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Header */}
+          <div className="text-center mb-16">
+            {/* Badge */}
+            <div className="inline-flex items-center space-x-2 px-5 py-2.5 mb-8 relative group">
+              <div className="absolute inset-0 bg-surface/80 dark:bg-surface/80 rounded-full border backdrop-blur-xl border-border"></div>
+              <div className="relative flex items-center space-x-2">
+                <span className="relative flex h-2.5 w-2.5">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-primary"></span>
+                </span>
+                <ShinyText
+                  size="sm"
+                  weight="normal"
+                  speed={3}
+                  intensity={1}
+                  shineWidth={80}
+                  pauseOnHover={true}
+                  repeat="infinite"
+                  gradientType="linear"
+                  className="text-gray-light"
+                >
+                  Let's Connect
+                </ShinyText>
+              </div>
+            </div>
+
+            {/* Heading */}
+            <h2
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light text-foreground dark:text-foreground mb-6"
+              style={{ fontFamily: "var(--font-poppins)" }}
+            >
+              Get in{" "}
+              <span className="text-primary dark:text-primary font-medium">
+                Touch
               </span>
-              <ShinyText
-                size="sm"
-                weight="normal"
-                speed={3}
-                intensity={1}
-                shineWidth={80}
-                pauseOnHover={true}
-                repeat="infinite"
-                gradientType="linear"
-                className="text-gray-light"
-              >
-                Let's Connect
-              </ShinyText>
-            </div>
+            </h2>
+
+            {/* Subheading */}
+            <p className="text-base sm:text-lg md:text-xl text-muted dark:text-muted max-w-2xl mx-auto">
+              Have a project in mind or want to collaborate? Feel free to reach
+              out. I'd love to hear from you!
+            </p>
           </div>
 
-          {/* Heading */}
-          <h2
-            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light text-foreground dark:text-foreground mb-6"
-            style={{ fontFamily: "var(--font-poppins)" }}
-          >
-            Get in{" "}
-            <span className="text-primary dark:text-primary font-medium">
-              Touch
-            </span>
-          </h2>
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
+            {/* Left Side - Contact Form */}
+            <div className="order-2 lg:order-1">
+              <form onSubmit={handleSubmit} className="space-y-6">
+                {/* Name Field */}
+                <div>
+                  <label
+                    htmlFor="name"
+                    className="block text-sm font-medium text-foreground dark:text-foreground mb-2"
+                  >
+                    Your Name
+                  </label>
+                  <div className="relative">
+                    <User className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-muted dark:text-muted" />
+                    <input
+                      type="text"
+                      id="name"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleChange}
+                      required
+                      placeholder="Xavier"
+                      className="w-full pl-12 pr-4 py-3.5 bg-surface/30 dark:bg-surface/30 border border-border/30 dark:border-border/30 rounded-xl text-foreground dark:text-foreground placeholder:text-muted/50 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition-all duration-300"
+                    />
+                  </div>
+                </div>
 
-          {/* Subheading */}
-          <p className="text-base sm:text-lg md:text-xl text-muted dark:text-muted max-w-2xl mx-auto">
-            Have a project in mind or want to collaborate? Feel free to reach
-            out. I'd love to hear from you!
-          </p>
-        </div>
+                {/* Email Field */}
+                <div>
+                  <label
+                    htmlFor="email"
+                    className="block text-sm font-medium text-foreground dark:text-foreground mb-2"
+                  >
+                    Your Email
+                  </label>
+                  <div className="relative">
+                    <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-muted dark:text-muted" />
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      required
+                      placeholder="xavier@example.com"
+                      className="w-full pl-12 pr-4 py-3.5 bg-surface/30 dark:bg-surface/30 border border-border/30 dark:border-border/30 rounded-xl text-foreground dark:text-foreground placeholder:text-muted/50 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition-all duration-300"
+                    />
+                  </div>
+                </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
-          {/* Left Side - Contact Form */}
-          <div className="order-2 lg:order-1">
-            <form onSubmit={handleSubmit} className="space-y-6">
-              {/* Name Field */}
-              <div>
-                <label
-                  htmlFor="name"
-                  className="block text-sm font-medium text-foreground dark:text-foreground mb-2"
+                {/* Subject Field */}
+                <div>
+                  <label
+                    htmlFor="subject"
+                    className="block text-sm font-medium text-foreground dark:text-foreground mb-2"
+                  >
+                    Subject
+                  </label>
+                  <div className="relative">
+                    <FileText className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-muted dark:text-muted" />
+                    <input
+                      type="text"
+                      id="subject"
+                      name="subject"
+                      value={formData.subject}
+                      onChange={handleChange}
+                      required
+                      placeholder="Project Inquiry"
+                      className="w-full pl-12 pr-4 py-3.5 bg-surface/30 dark:bg-surface/30 border border-border/30 dark:border-border/30 rounded-xl text-foreground dark:text-foreground placeholder:text-muted/50 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition-all duration-300"
+                    />
+                  </div>
+                </div>
+
+                {/* Message Field */}
+                <div>
+                  <label
+                    htmlFor="message"
+                    className="block text-sm font-medium text-foreground dark:text-foreground mb-2"
+                  >
+                    Message
+                  </label>
+                  <div className="relative">
+                    <MessageSquare className="absolute left-4 top-4 w-5 h-5 text-muted dark:text-muted" />
+                    <textarea
+                      id="message"
+                      name="message"
+                      value={formData.message}
+                      onChange={handleChange}
+                      required
+                      rows={5}
+                      placeholder="Tell me about your project..."
+                      className="w-full pl-12 pr-4 py-3.5 bg-surface/30 dark:bg-surface/30 border border-border/30 dark:border-border/30 rounded-xl text-foreground dark:text-foreground placeholder:text-muted/50 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition-all duration-300 resize-none"
+                    />
+                  </div>
+                </div>
+
+                {/* Submit Button */}
+                <button
+                  type="submit"
+                  disabled={isLoading}
+                  className="w-full px-8 py-4 bg-primary hover:bg-primary-hover text-background dark:text-background rounded-xl font-semibold transition-all duration-300 transform disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer flex items-center justify-center gap-2"
                 >
-                  Your Name
-                </label>
-                <div className="relative">
-                  <User className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-muted dark:text-muted" />
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    required
-                    placeholder="Xavier"
-                    className="w-full pl-12 pr-4 py-3.5 bg-surface/30 dark:bg-surface/30 border border-border/30 dark:border-border/30 rounded-xl text-foreground dark:text-foreground placeholder:text-muted/50 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition-all duration-300"
-                  />
-                </div>
-              </div>
-
-              {/* Email Field */}
-              <div>
-                <label
-                  htmlFor="email"
-                  className="block text-sm font-medium text-foreground dark:text-foreground mb-2"
-                >
-                  Your Email
-                </label>
-                <div className="relative">
-                  <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-muted dark:text-muted" />
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    required
-                    placeholder="xavier@example.com"
-                    className="w-full pl-12 pr-4 py-3.5 bg-surface/30 dark:bg-surface/30 border border-border/30 dark:border-border/30 rounded-xl text-foreground dark:text-foreground placeholder:text-muted/50 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition-all duration-300"
-                  />
-                </div>
-              </div>
-
-              {/* Subject Field */}
-              <div>
-                <label
-                  htmlFor="subject"
-                  className="block text-sm font-medium text-foreground dark:text-foreground mb-2"
-                >
-                  Subject
-                </label>
-                <div className="relative">
-                  <FileText className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-muted dark:text-muted" />
-                  <input
-                    type="text"
-                    id="subject"
-                    name="subject"
-                    value={formData.subject}
-                    onChange={handleChange}
-                    required
-                    placeholder="Project Inquiry"
-                    className="w-full pl-12 pr-4 py-3.5 bg-surface/30 dark:bg-surface/30 border border-border/30 dark:border-border/30 rounded-xl text-foreground dark:text-foreground placeholder:text-muted/50 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition-all duration-300"
-                  />
-                </div>
-              </div>
-
-              {/* Message Field */}
-              <div>
-                <label
-                  htmlFor="message"
-                  className="block text-sm font-medium text-foreground dark:text-foreground mb-2"
-                >
-                  Message
-                </label>
-                <div className="relative">
-                  <MessageSquare className="absolute left-4 top-4 w-5 h-5 text-muted dark:text-muted" />
-                  <textarea
-                    id="message"
-                    name="message"
-                    value={formData.message}
-                    onChange={handleChange}
-                    required
-                    rows={5}
-                    placeholder="Tell me about your project..."
-                    className="w-full pl-12 pr-4 py-3.5 bg-surface/30 dark:bg-surface/30 border border-border/30 dark:border-border/30 rounded-xl text-foreground dark:text-foreground placeholder:text-muted/50 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition-all duration-300 resize-none"
-                  />
-                </div>
-              </div>
-
-              {/* Status Messages */}
-              {status === "success" && (
-                <div className="flex items-center gap-2 p-4 bg-green-500/10 border border-green-500/30 rounded-xl text-green-600 dark:text-green-400">
-                  <CheckCircle2 className="w-5 h-5" />
-                  <span className="text-sm font-medium">
-                    Message sent successfully! I'll get back to you soon.
-                  </span>
-                </div>
-              )}
-
-              {status === "error" && (
-                <div className="flex items-center gap-2 p-4 bg-red-500/10 border border-red-500/30 rounded-xl text-red-600 dark:text-red-400">
-                  <AlertCircle className="w-5 h-5" />
-                  <span className="text-sm font-medium">
-                    {errorMessage || "Something went wrong. Please try again."}
-                  </span>
-                </div>
-              )}
-
-              {/* Submit Button */}
-              <button
-                type="submit"
-                disabled={status === "loading"}
-                className="w-full px-8 py-4 bg-primary hover:bg-primary-hover text-background dark:text-background rounded-xl font-semibold transition-all duration-300 transform disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer flex items-center justify-center gap-2"
-              >
-                {status === "loading" ? (
-                  <>
-                    <Loader2 className="w-5 h-5 animate-spin" />
-                    Sending...
-                  </>
-                ) : (
-                  <>
-                    <Send className="w-5 h-5" />
-                    Send Message
-                  </>
-                )}
-              </button>
-            </form>
-          </div>
-
-          {/* Right Side - Social Links & CTA */}
-          <div className="order-1 lg:order-2 space-y-8">
-            {/* Get in Touch via WhatsApp */}
-            <div className="bg-surface/30 dark:bg-surface/30 backdrop-blur-xl border border-border/30 dark:border-border/30 rounded-2xl p-8">
-              <h3 className="text-2xl font-bold text-foreground dark:text-foreground mb-4">
-                Quick Response?
-              </h3>
-              <p className="text-muted dark:text-muted mb-6">
-                For urgent inquiries or quick questions, reach out directly via
-                WhatsApp.
-              </p>
-              <AnimatedButton
-                label="Get in Touch on WhatsApp"
-                className="text-[12px] sm:text-lg"
-                icon={MessageSquare}
-                iconSize={18}
-                size="lg"
-                fullWidth
-                onClick={handleWhatsApp}
-              />
+                  {isLoading ? (
+                    <>
+                      <Loader2 className="w-5 h-5 animate-spin" />
+                      Sending...
+                    </>
+                  ) : (
+                    <>
+                      <Send className="w-5 h-5" />
+                      Send Message
+                    </>
+                  )}
+                </button>
+              </form>
             </div>
 
-            {/* Social Links */}
-            <div className="bg-surface/30 dark:bg-surface/30 backdrop-blur-xl border border-border/30 dark:border-border/30 rounded-2xl p-8">
-              <h3 className="text-2xl font-bold text-foreground dark:text-foreground mb-4">
-                Connect with Me
-              </h3>
-              <p className="text-muted dark:text-muted mb-6">
-                Follow me on social media or check out my work on GitHub.
-              </p>
-
-              <div className="grid grid-cols-3 gap-4">
-                {socialLinks.map((social) => {
-                  const Icon = social.icon;
-                  return (
-                    <Link
-                      key={social.name}
-                      href={social.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className={`group relative flex items-center justify-center p-4 bg-surface/50 dark:bg-surface/50 border border-border/30 dark:border-border/30 rounded-xl transition-all duration-300 ${social.bgColor} ${social.color}`}
-                      title={social.name}
-                    >
-                      <Icon className="w-6 h-6 text-foreground dark:text-foreground transition-colors duration-300" />
-
-                      {/* Tooltip */}
-                      <span className="absolute -bottom-8 left-1/2 -translate-x-1/2 px-2 py-1 bg-foreground dark:bg-foreground text-background dark:text-background text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap pointer-events-none z-[999]">
-                        {social.name}
-                      </span>
-                    </Link>
-                  );
-                })}
+            {/* Right Side - Social Links & CTA */}
+            <div className="order-1 lg:order-2 space-y-8">
+              {/* Get in Touch via WhatsApp */}
+              <div className="bg-surface/30 dark:bg-surface/30 backdrop-blur-xl border border-border/30 dark:border-border/30 rounded-2xl p-8">
+                <h3 className="text-2xl font-bold text-foreground dark:text-foreground mb-4">
+                  Quick Response?
+                </h3>
+                <p className="text-muted dark:text-muted mb-6">
+                  For urgent inquiries or quick questions, reach out directly
+                  via WhatsApp.
+                </p>
+                <AnimatedButton
+                  label="Get in Touch on WhatsApp"
+                  className="text-[12px] sm:text-lg"
+                  icon={MessageSquare}
+                  iconSize={18}
+                  size="lg"
+                  fullWidth
+                  onClick={handleWhatsApp}
+                />
               </div>
-            </div>
 
-            {/* Additional Info */}
-            <div className="bg-surface/30 dark:bg-surface/30 backdrop-blur-xl border border-border/30 dark:border-border/30 rounded-2xl p-8">
-              <h3 className="text-xl font-bold text-foreground dark:text-foreground mb-4">
-                📧 Direct Email
-              </h3>
-              <Link
-                href="mailto:aashirsiddiqui217@gmail.com"
-                className="text-primary dark:text-primary hover:underline font-medium"
-              >
-                aashirsiddiqui217@gmail.com
-              </Link>
+              {/* Social Links */}
+              <div className="bg-surface/30 dark:bg-surface/30 backdrop-blur-xl border border-border/30 dark:border-border/30 rounded-2xl p-8">
+                <h3 className="text-2xl font-bold text-foreground dark:text-foreground mb-4">
+                  Connect with Me
+                </h3>
+                <p className="text-muted dark:text-muted mb-6">
+                  Follow me on social media or check out my work on GitHub.
+                </p>
 
-              <h3 className="text-xl font-bold text-foreground dark:text-foreground mb-4 mt-6">
-                ⏰ Response Time
-              </h3>
-              <p className="text-muted dark:text-muted text-sm">
-                I typically respond within 24-48 hours during business days.
-              </p>
+                <div className="grid grid-cols-3 gap-4">
+                  {socialLinks.map((social) => {
+                    const Icon = social.icon;
+                    return (
+                      <Link
+                        key={social.name}
+                        href={social.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={`group relative flex items-center justify-center p-4 bg-surface/50 dark:bg-surface/50 border border-border/30 dark:border-border/30 rounded-xl transition-all duration-300 ${social.bgColor} ${social.color}`}
+                        title={social.name}
+                      >
+                        <Icon className="w-6 h-6 text-foreground dark:text-foreground transition-colors duration-300" />
+
+                        {/* Tooltip */}
+                        <span className="absolute -bottom-8 left-1/2 -translate-x-1/2 px-2 py-1 bg-foreground dark:bg-foreground text-background dark:text-background text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap pointer-events-none z-[999]">
+                          {social.name}
+                        </span>
+                      </Link>
+                    );
+                  })}
+                </div>
+              </div>
+
+              {/* Additional Info */}
+              <div className="bg-surface/30 dark:bg-surface/30 backdrop-blur-xl border border-border/30 dark:border-border/30 rounded-2xl p-8">
+                <h3 className="text-xl font-bold text-foreground dark:text-foreground mb-4">
+                  📧 Direct Email
+                </h3>
+                <Link
+                  href="mailto:aashirsiddiqui217@gmail.com"
+                  className="text-primary dark:text-primary hover:underline font-medium"
+                >
+                  aashirsiddiqui217@gmail.com
+                </Link>
+
+                <h3 className="text-xl font-bold text-foreground dark:text-foreground mb-4 mt-6">
+                  ⏰ Response Time
+                </h3>
+                <p className="text-muted dark:text-muted text-sm">
+                  I typically respond within 24-48 hours during business days.
+                </p>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 }

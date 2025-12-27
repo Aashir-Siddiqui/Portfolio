@@ -7,7 +7,7 @@ import AnimatedButton from "../AnimatedButton";
 
 export default function AboutSection() {
   const handleWhatsAppContact = () => {
-    const phoneNumber = "923701082668";
+    const phoneNumber = "923362746653";
     const message =
       "Hi Aashir! I'm interested in discussing a project with you.";
     const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
@@ -40,7 +40,7 @@ export default function AboutSection() {
           <div className="relative">
             <div className="relative rounded-3xl overflow-hidden bg-surface/50 dark:bg-surface/50 border border-border/30 dark:border-border/30 shadow-2xl">
               <Image
-                src="/images/aboutImg.jpeg"
+                src="/aboutImage.jpeg"
                 alt={aboutData.intro.name}
                 width={600}
                 height={700}
@@ -49,7 +49,7 @@ export default function AboutSection() {
               />
 
               {/* Name Badge at Bottom */}
-              <div className="absolute bottom-4 left-4 right-4 md:bottom-6 md:left-6 md:right-6">
+              {/* <div className="absolute bottom-4 left-4 right-4 md:bottom-6 md:left-6 md:right-6">
                 <div className="bg-surface/90 dark:bg-surface/90 backdrop-blur-xl rounded-2xl p-4 md:p-6 border border-border/50 dark:border-border/50">
                   <h2 className="text-xl md:text-3xl font-bold text-foreground dark:text-foreground mb-2">
                     {aboutData.intro.name}
@@ -58,7 +58,7 @@ export default function AboutSection() {
                     {aboutData.intro.role}
                   </p>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
 

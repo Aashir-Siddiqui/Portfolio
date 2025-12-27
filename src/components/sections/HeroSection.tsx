@@ -2,7 +2,8 @@
 
 import ShinyText from "@/components/lightswind/shiny-text";
 import AnimatedButton from "../AnimatedButton";
-import { FileUser, MessageCircle } from "lucide-react";
+import { MessageSquare } from "lucide-react";
+import { Download } from "../lightswind/Download";
 
 export default function HeroSection() {
   const handleDownloadCV = () => {
@@ -20,7 +21,7 @@ export default function HeroSection() {
 
   // WhatsApp Contact Function
   const handleWhatsAppContact = () => {
-    const phoneNumber = "923701082668";
+    const phoneNumber = "923362746653";
     const message =
       "Hi Aashir! I'm interested in discussing a project with you.";
     const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
@@ -84,8 +85,8 @@ export default function HeroSection() {
             <div className="flex flex-col sm:flex-row sm:items-center justify-center gap-4">
               <AnimatedButton
                 label="Download CV"
-                icon={FileUser}
-                iconSize={18}
+                icon={Download}
+                iconSize={24}
                 size="lg"
                 onClick={handleDownloadCV}
               />
@@ -94,7 +95,7 @@ export default function HeroSection() {
                 onClick={handleWhatsAppContact}
                 className="w-auto px-8 py-4 border border-border text-foreground rounded-lg font-semibold hover:bg-surface transition-all duration-500 cursor-pointer transform flex items-center justify-center gap-2"
               >
-                <MessageCircle size={18} />
+                <MessageSquare size={18} />
                 <span>Get in Touch</span>
               </button>
             </div>

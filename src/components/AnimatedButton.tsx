@@ -9,7 +9,7 @@ interface AnimatedButtonProps {
   label: string;
   onClick?: () => void;
   href?: string;
-  icon?: LucideIcon;
+  icon?: LucideIcon | React.ComponentType<any>;
   iconSize?: number;
   variant?: "primary" | "secondary" | "outline";
   size?: "sm" | "md" | "lg";
@@ -56,6 +56,9 @@ export const AnimatedButton: React.FC<AnimatedButtonProps> = ({
     className
   );
 
+  // Check if icon is Download component
+  const isDownloadIcon = Icon && (Icon as any).displayName === "Download";
+
   const content = (
     <>
       {/* Shine Effect */}
@@ -63,10 +66,15 @@ export const AnimatedButton: React.FC<AnimatedButtonProps> = ({
 
       {/* Icon */}
       {Icon && (
-        <Icon
-          size={iconSize}
-          className="relative z-10 transition-transform duration-300"
-        />
+        <span className="relative z-10 transition-transform duration-300 flex items-center justify-center">
+          {isDownloadIcon ? (
+            // Download component with currentColor support
+            <Icon width={iconSize} height={iconSize} stroke="currentColor" />
+          ) : (
+            // Regular Lucide icon
+            <Icon size={iconSize} />
+          )}
+        </span>
       )}
 
       {/* Label */}

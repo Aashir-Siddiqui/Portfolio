@@ -16,7 +16,7 @@ import {
   ExternalLink,
   ChevronDown,
 } from "lucide-react";
-import logo from "../../public/images/logo.png";
+import logo from "../../public/logo.png";
 import Link from "next/link";
 import ShinyText from "./lightswind/shiny-text";
 import AnimatedButton from "./AnimatedButton";
@@ -120,8 +120,8 @@ const contactInfo: ContactInfo[] = [
   },
   {
     icon: Phone,
-    text: "+92 370 1082668",
-    href: "tel:+923701082668",
+    text: "+92 336 2746653",
+    href: "tel:+923362746653",
   },
   {
     icon: MapPin,

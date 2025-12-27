@@ -234,6 +234,7 @@ export default function ProjectsSection() {
 }
 
 // Individual Project Card Component
+// Individual Project Card Component
 interface ProjectCardProps {
   project: (typeof projectsData.projects)[0];
 }
@@ -245,22 +246,22 @@ function ProjectCard({ project }: ProjectCardProps) {
   return (
     <div className="group relative bg-surface/30 dark:bg-surface/30 backdrop-blur-xl border border-border/30 dark:border-border/30 rounded-2xl overflow-hidden hover:border-primary/50 dark:hover:border-primary/50 transition-all duration-500 h-full flex flex-col">
       {/* Project Number Badge */}
-      <div className="absolute top-4 left-4 z-20 w-12 h-12 bg-primary/90 dark:bg-primary/90 backdrop-blur-sm rounded-xl flex items-center justify-center">
-        <span className="text-2xl font-bold text-background dark:text-background">
+      <div className="absolute top-3 left-3 z-20 w-10 h-10 bg-primary/90 dark:bg-primary/90 backdrop-blur-sm rounded-xl flex items-center justify-center">
+        <span className="text-xl font-bold text-background dark:text-background">
           {project.id}
         </span>
       </div>
 
       {/* Type Badge */}
-      <div className="absolute top-4 right-4 z-20 px-4 py-2 bg-background/90 dark:bg-background/90 backdrop-blur-sm border border-border/30 dark:border-border/30 rounded-full">
+      <div className="absolute top-3 right-3 z-20 px-3 py-1.5 bg-background/90 dark:bg-background/90 backdrop-blur-sm border border-border/30 dark:border-border/30 rounded-full">
         <span className="text-xs font-semibold text-primary dark:text-primary flex items-center gap-1">
           <Code2 className="w-3 h-3" />
           {project.type}
         </span>
       </div>
 
-      {/* Media Container - Fixed Height */}
-      <div className="relative h-72 bg-surface dark:bg-surface overflow-hidden flex-shrink-0">
+      {/* Media Container - Reduced Height */}
+      <div className="relative h-48 sm:h-56 lg:h-60 bg-surface dark:bg-surface overflow-hidden flex-shrink-0">
         {project.mediaType === "video" && isLinkedIn ? (
           // LinkedIn Embed with Thumbnail
           <Link
@@ -284,12 +285,12 @@ function ProjectCard({ project }: ProjectCardProps) {
             ) : (
               // Fallback to LinkedIn Icon
               <div className="w-full h-full flex items-center justify-center bg-[#0077B5]/10 dark:bg-[#0077B5]/20">
-                <div className="text-center space-y-4">
-                  <Linkedin className="w-20 h-20 mx-auto text-[#0077B5] dark:text-[#0077B5]" />
-                  <p className="text-sm font-medium text-foreground dark:text-foreground">
+                <div className="text-center space-y-3">
+                  <Linkedin className="w-16 h-16 mx-auto text-[#0077B5] dark:text-[#0077B5]" />
+                  <p className="text-xs font-medium text-foreground dark:text-foreground">
                     LinkedIn Post
                   </p>
-                  <p className="text-xs text-muted dark:text-muted px-4">
+                  <p className="text-[10px] text-muted dark:text-muted px-4">
                     Click to view on LinkedIn
                   </p>
                 </div>
@@ -298,8 +299,8 @@ function ProjectCard({ project }: ProjectCardProps) {
 
             {/* Play/View Button Overlay */}
             <div className="absolute inset-0 bg-black/0 group-hover/video:bg-black/10 flex items-center justify-center transition-all duration-300">
-              <div className="w-16 h-16 sm:w-20 sm:h-20 bg-[#0077B5] rounded-full flex items-center justify-center transform transition-all duration-300 opacity-0 group-hover/video:opacity-100 group-hover/video:scale-110">
-                <ExternalLink className="w-8 h-8 sm:w-10 sm:h-10 text-white" />
+              <div className="w-14 h-14 sm:w-16 sm:h-16 bg-[#0077B5] rounded-full flex items-center justify-center transform transition-all duration-300 opacity-0 group-hover/video:opacity-100 group-hover/video:scale-110">
+                <ExternalLink className="w-7 h-7 sm:w-8 sm:h-8 text-white" />
               </div>
             </div>
           </Link>
@@ -321,8 +322,8 @@ function ProjectCard({ project }: ProjectCardProps) {
             />
             {/* Play Button Overlay */}
             <div className="absolute inset-0 bg-black/40 flex items-center justify-center transition-all duration-300 group-hover/video:bg-black/50">
-              <div className="w-16 h-16 sm:w-20 sm:h-20 bg-primary rounded-full flex items-center justify-center transform transition-all duration-300 group-hover/video:scale-110">
-                <Play className="w-8 h-8 sm:w-10 sm:h-10 text-background dark:text-background fill-current ml-1" />
+              <div className="w-14 h-14 sm:w-16 sm:h-16 bg-primary rounded-full flex items-center justify-center transform transition-all duration-300 group-hover/video:scale-110">
+                <Play className="w-7 h-7 sm:w-8 sm:h-8 text-background dark:text-background fill-current ml-1" />
               </div>
             </div>
           </Link>
@@ -337,37 +338,39 @@ function ProjectCard({ project }: ProjectCardProps) {
         )}
       </div>
 
-      {/* Content - Flexible Height with Fixed Structure */}
-      <div className="p-6 space-y-4 flex flex-col flex-1">
+      {/* Content - Reduced Padding and Spacing */}
+      <div className="p-4 sm:p-5 space-y-3 flex flex-col flex-1">
         {/* Category - Fixed */}
         <div className="flex items-center gap-2 text-primary dark:text-primary flex-shrink-0">
-          <Sparkles className="w-4 h-4" />
-          <span className="text-sm font-medium">{project.category}</span>
+          <Sparkles className="w-3.5 h-3.5" />
+          <span className="text-xs sm:text-sm font-medium">
+            {project.category}
+          </span>
         </div>
 
         {/* Title - Fixed Height (2 lines) */}
-        <h3 className="text-2xl font-bold text-foreground dark:text-foreground group-hover:text-primary dark:group-hover:text-primary transition-colors duration-300 line-clamp-2 flex-shrink-0 min-h-[3.5rem]">
+        <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-foreground dark:text-foreground group-hover:text-primary dark:group-hover:text-primary transition-colors duration-300 line-clamp-2 flex-shrink-0 min-h-[2.5rem] sm:min-h-[3rem]">
           {project.title}
         </h3>
 
-        {/* Description - Fixed Height (3 lines) */}
-        <p className="text-sm text-muted dark:text-muted leading-relaxed line-clamp-3 flex-shrink-0 min-h-[4.5rem]">
+        {/* Description - Fixed Height (2 lines on mobile, 3 on desktop) */}
+        <p className="text-xs sm:text-sm text-muted dark:text-muted leading-relaxed line-clamp-2 sm:line-clamp-3 flex-shrink-0 min-h-[2.5rem] sm:min-h-[4rem]">
           {project.description}
         </p>
 
-        {/* Tech Stack - Fixed Height */}
-        <div className="flex flex-wrap gap-2 flex-shrink-0 min-h-[2.5rem]">
-          {project.techStack.slice(0, 6).map((tech, index) => (
+        {/* Tech Stack - Reduced Height */}
+        <div className="flex flex-wrap gap-1.5 sm:gap-2 flex-shrink-0 min-h-[2rem]">
+          {project.techStack.slice(0, 5).map((tech, index) => (
             <span
               key={index}
-              className="px-3 py-1.5 text-xs font-medium bg-surface/50 dark:bg-surface/50 border border-border/30 dark:border-border/30 text-foreground dark:text-foreground rounded-lg"
+              className="px-2 sm:px-3 py-1 sm:py-2 text-[10px] sm:text-xs font-medium bg-surface/50 dark:bg-surface/50 border border-border/30 dark:border-border/30 text-foreground dark:text-foreground rounded-lg"
             >
               {tech}
             </span>
           ))}
-          {project.techStack.length > 6 && (
-            <span className="px-3 py-1.5 text-xs font-medium bg-primary/10 dark:bg-primary/10 text-primary dark:text-primary rounded-lg">
-              +{project.techStack.length - 6} more
+          {project.techStack.length > 5 && (
+            <span className="px-2 sm:px-3 py-1 sm:py-2.5 text-[10px] sm:text-xs font-medium bg-primary/10 dark:bg-primary/10 text-primary dark:text-primary rounded-lg">
+              +{project.techStack.length - 5}
             </span>
           )}
         </div>
@@ -375,13 +378,13 @@ function ProjectCard({ project }: ProjectCardProps) {
         {/* Spacer to push buttons to bottom */}
         <div className="flex-1"></div>
 
-        {/* Action Buttons - Fixed at Bottom */}
-        <div className="flex flex-wrap gap-3 pt-2 flex-shrink-0">
+        {/* Action Buttons - Reduced Size */}
+        <div className="flex flex-wrap gap-2 sm:gap-3 pt-2 flex-shrink-0">
           <Link
             href={project.liveUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex-1 min-w-[140px] flex items-center justify-center gap-2 px-5 py-3 bg-primary hover:bg-primary-hover text-background dark:text-background rounded-xl font-semibold transition-all duration-300 transform"
+            className="flex-1 min-w-[120px] flex items-center justify-center gap-2 px-4 py-2.5 bg-primary hover:bg-primary-hover text-background dark:text-background rounded-xl font-semibold text-sm transition-all duration-300 transform"
           >
             <ExternalLink className="w-4 h-4" />
             <span>Live Demo</span>
@@ -391,7 +394,7 @@ function ProjectCard({ project }: ProjectCardProps) {
               href={project.githubUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center gap-2 px-5 py-3 border border-border dark:border-border text-foreground dark:text-foreground rounded-xl font-semibold hover:bg-surface dark:hover:bg-surface transition-all duration-300 transform"
+              className="flex items-center justify-center gap-2 px-4 py-2.5 border border-border dark:border-border text-foreground dark:text-foreground rounded-xl font-semibold text-sm hover:bg-surface dark:hover:bg-surface transition-all duration-300 transform"
             >
               <Github className="w-4 h-4" />
               <span>Code</span>
