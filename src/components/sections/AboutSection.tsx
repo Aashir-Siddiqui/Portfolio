@@ -4,6 +4,7 @@ import { aboutData } from "@/lib/data";
 import Image from "next/image";
 import { Check, SendHorizontal } from "lucide-react";
 import AnimatedButton from "../AnimatedButton";
+import { motion } from "motion/react";
 
 export default function AboutSection() {
   const handleWhatsAppContact = () => {
@@ -117,7 +118,7 @@ export default function AboutSection() {
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
               <AnimatedButton
                 label="Hire Now"
-                icon={SendHorizontal}
+                icon={hireIcon}
                 iconSize={18}
                 size="lg"
                 onClick={handleWhatsAppContact}
@@ -129,3 +130,20 @@ export default function AboutSection() {
     </div>
   );
 }
+
+export const hireIcon = () => {
+  return (
+    <motion.div
+      animate={{
+        x: [0, 4, 0],
+      }}
+      transition={{
+        duration: 1.5,
+        repeat: Infinity,
+        ease: "easeInOut",
+      }}
+    >
+      <SendHorizontal />
+    </motion.div>
+  );
+};

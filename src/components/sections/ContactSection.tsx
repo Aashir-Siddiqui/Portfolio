@@ -18,6 +18,7 @@ import ShinyText from "@/components/lightswind/shiny-text";
 import AnimatedButton from "@/components/AnimatedButton";
 import Link from "next/link";
 import toast, { Toaster } from "react-hot-toast";
+import { motion } from "motion/react";
 
 // Social Links Data
 const socialLinks = [
@@ -359,7 +360,19 @@ export default function ContactSection() {
                     </>
                   ) : (
                     <>
-                      <Send className="w-5 h-5" />
+                      <motion.div
+                        animate={{
+                          x: [0, 3, 0],
+                          y: [0, -3, 0],
+                        }}
+                        transition={{
+                          duration: 2,
+                          repeat: Infinity,
+                          ease: "easeInOut",
+                        }}
+                      >
+                        <Send className="w-5 h-5" />
+                      </motion.div>
                       Send Message
                     </>
                   )}

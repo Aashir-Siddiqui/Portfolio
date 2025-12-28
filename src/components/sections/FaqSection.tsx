@@ -151,7 +151,7 @@ function FaqItem({ faq, isOpen, onToggle, icon }: FaqItemProps) {
             }}
             className="overflow-hidden"
           >
-            <div className="pr-16 pb-4 pl-[4.3rem]">
+            <div className="pr-16 pb-4 pl-[4.5rem]">
               <motion.p
                 initial={{ y: -5, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
