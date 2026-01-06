@@ -41,7 +41,7 @@ export default function AIChatbot() {
   const inputRef = useRef<HTMLInputElement>(null);
 
   // Constants
-  const MESSAGE_LIMIT = 40;
+  const MESSAGE_LIMIT = 30;
   const COOLDOWN_MINUTES = 30;
   const STORAGE_KEY = "chatbot_rate_limit";
 

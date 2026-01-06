@@ -518,8 +518,8 @@ export async function POST(req: NextRequest) {
       const model = genAI.getGenerativeModel({
         model: "gemini-2.5-flash",
         generationConfig: {
-          temperature: 0.8,
-          maxOutputTokens: 1024, // Reduced to prevent timeout while still allowing detailed responses
+          temperature: 0.7,
+          maxOutputTokens: 1500, // Balanced for detailed but readable responses
         },
       });
 
@@ -537,36 +537,43 @@ export async function POST(req: NextRequest) {
 User Question: ${userMessage}
 
 Instructions: 
-- Provide accurate, comprehensive, and helpful responses
-- Use markdown for formatting (bold, bullets, lists, etc.) to make responses clear and structured
+- Provide COMPLETE, accurate, and helpful responses that are detailed but concise
+- Aim for medium-length responses (150-300 words / 6-12 sentences)
+- Use markdown formatting (bold, bullets, numbered lists) for clarity and structure
 - Be friendly, professional, and conversational
-- Provide detailed information from the context when relevant
-- For contact info, provide all relevant details (email, phone, LinkedIn, GitHub)
-- For pricing, explain it's project-based and suggest consultation with full details
-- For CV/resume, mention the download button on the website
-- For technical questions, provide thorough explanations with examples when helpful
-- Break down complex topics into clear, digestible sections
+- For portfolio questions, provide key details without overwhelming:
+  • Contact info: List all channels clearly
+  • Skills/Tech: Highlight 5-8 main technologies with brief context
+  • Projects: Cover 2-4 key projects with essential details
+  • Services: List main offerings with brief explanations
+- Break down information into clear, scannable sections
+- Focus on the most relevant and important information
 - Never make up information - stick to the context provided
-- Be as helpful and informative as possible while maintaining accuracy
+- Ensure answers are COMPLETE - cover all essential aspects of the question
+- Be informative but not exhaustive - quality over quantity
 
 Response:`;
       } else {
         // General question (like "what is Next.js")
-        prompt = `You are a helpful, knowledgeable, and comprehensive AI assistant. Provide detailed, accurate, and informative responses that fully address the user's question.
+        prompt = `You are a helpful, knowledgeable AI assistant. Provide clear, well-structured, and informative responses that are detailed enough to be complete and useful, but concise enough to be easily readable.
 
 User Question: ${userMessage}
 
 Instructions:
-- Provide thorough, detailed, and comprehensive answers
-- Be friendly, helpful, and conversational in your tone
-- Use clear, well-structured explanations with examples when helpful
-- For technical topics, explain concepts clearly with relevant details and context
-- Use markdown formatting (bold, bullets, numbered lists, code blocks) to make responses clear and readable
-- Break down complex topics into understandable sections
-- Include relevant examples, use cases, or analogies when they help clarify the topic
-- Be informative and educational - aim to teach and help the user understand thoroughly
-- Answer naturally and conversationally, as a knowledgeable expert would
-- Don't be overly brief - prioritize being helpful and comprehensive over being concise
+- Provide COMPLETE and accurate answers that fully address the question
+- Aim for medium-length responses (200-400 words / 8-15 sentences) - detailed but readable
+- Be friendly, helpful, and conversational
+- Use clear, well-organized structure with markdown formatting (bold, bullets, numbered lists)
+- For technical topics:
+  • Start with a clear definition/explanation (2-3 sentences)
+  • Cover 4-6 key points or features with brief explanations
+  • Include 1-2 practical examples or use cases
+  • End with a brief summary or practical takeaway
+- Break down complex topics into digestible sections
+- Focus on the most important and relevant information
+- Be informative and educational without overwhelming the user
+- Ensure the answer is COMPLETE - cover all essential aspects
+- Keep it balanced: comprehensive but not overwhelming
 
 Response:`;
       }
@@ -574,7 +581,7 @@ Response:`;
       const result = await Promise.race([
         model.generateContent(prompt),
         new Promise((_, reject) =>
-          setTimeout(() => reject(new Error("Timeout")), 30000)
+          setTimeout(() => reject(new Error("Timeout")), 20000)
         ),
       ]);
 
