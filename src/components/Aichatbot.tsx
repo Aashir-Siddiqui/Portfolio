@@ -41,7 +41,7 @@ export default function AIChatbot() {
   const inputRef = useRef<HTMLInputElement>(null);
 
   // Constants
-  const MESSAGE_LIMIT = 50;
+  const MESSAGE_LIMIT = 40;
   const COOLDOWN_MINUTES = 30;
   const STORAGE_KEY = "chatbot_rate_limit";
 
@@ -334,7 +334,7 @@ export default function AIChatbot() {
         <div
           className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 w-[420px] max-w-[calc(100vw-32px)] bg-background/95 dark:bg-background/95 backdrop-blur-2xl border border-border/50 dark:border-border/50 rounded-2xl sm:rounded-3xl shadow-2xl flex flex-col overflow-hidden transition-all duration-300"
           style={{
-            height: isMinimized ? "80px" : "84vh",
+            height: isMinimized ? "80px" : "80vh",
             maxHeight: isMinimized ? "80px" : "calc(100vh - 32px)",
             animation: "smoothSlideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1)",
           }}

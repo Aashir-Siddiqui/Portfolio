@@ -82,11 +82,11 @@ export default function TestimonialsSection() {
         <div className="relative">
           {/* Carousel */}
           <div className="overflow-hidden" ref={emblaRef}>
-            <div className="flex gap-6">
+            <div className="flex">
               {testimonialsData.testimonials.map((testimonial, index) => (
                 <div
                   key={testimonial.id}
-                  className="flex-[0_0_100%] min-w-0 sm:flex-[0_0_calc(50%-12px)] lg:flex-[0_0_calc(33.333%-16px)]"
+                  className="flex-[0_0_100%] min-w-0 sm:flex-[0_0_calc(50%-12px)] lg:flex-[0_0_calc(33.333%-16px)] pl-0 first:pl-0 last:pr-0"
                 >
                   <motion.div
                     initial={{ opacity: 0, y: 20 }}
@@ -159,7 +159,7 @@ function TestimonialCard({ testimonial }: TestimonialCardProps) {
   return (
     <div className="group relative h-full min-h-[320px]">
       {/* Main Card Container */}
-      <div className="relative bg-surface/20 dark:bg-surface/20 backdrop-blur-sm border border-border/20 dark:border-border/20 rounded-3xl p-6 sm:p-8 hover:border-primary/30 dark:hover:border-primary/30 transition-all duration-500 h-full flex flex-col">
+      <div className="relative bg-surface/60 dark:bg-surface/60 backdrop-blur-xl border border-border/20 dark:border-border/20 rounded-3xl p-6 sm:p-8 hover:border-primary/30 dark:hover:border-primary/30 transition-all duration-500 h-full flex flex-col mx-3">
         {/* Top Section - Client Info */}
         <div className="flex items-start gap-4 mb-6 flex-shrink-0">
           <div className="relative flex-shrink-0">

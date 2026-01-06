@@ -462,7 +462,7 @@ export const testimonialsData = {
     },
     {
       id: 5,
-      name: "Bilal Ahmed",
+      name: "Bilal Aziz",
       role: "Operations Manager",
       company: "E-Commerce Brand",
       feedback:
@@ -472,7 +472,7 @@ export const testimonialsData = {
     },
     {
       id: 6,
-      name: "Iqbal Ahmed",
+      name: "Muhammad Iqbal",
       role: "Tech Lead",
       company: "Global Software House",
       feedback:

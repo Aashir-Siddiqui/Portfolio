@@ -221,7 +221,7 @@ export const ScrollTimeline = ({
       )}
     >
       <div className="text-center py-16 px-4">
-        <h2 className="text-4xl sm:text-5xl md:text-6xl font-light text-foreground dark:text-foreground mb-6 leading-tight">
+        <h2 className="text-3xl sm:text-5xl md:text-6xl font-light text-foreground dark:text-foreground mb-6 leading-tight">
           <span
             className="font-medium text-foreground dark:text-foreground leading-normal"
             style={{ fontFamily: "var(--font-poppins)" }}

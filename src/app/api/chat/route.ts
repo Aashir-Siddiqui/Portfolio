@@ -518,8 +518,8 @@ export async function POST(req: NextRequest) {
       const model = genAI.getGenerativeModel({
         model: "gemini-2.5-flash",
         generationConfig: {
-          temperature: 0.7,
-          maxOutputTokens: 400, // Slightly longer for general questions
+          temperature: 0.8,
+          maxOutputTokens: 1024, // Reduced to prevent timeout while still allowing detailed responses
         },
       });
 
@@ -537,31 +537,36 @@ export async function POST(req: NextRequest) {
 User Question: ${userMessage}
 
 Instructions: 
-- Provide accurate, concise responses (2-4 sentences maximum)
-- Use markdown for formatting (bold, bullets, etc.)
-- Be friendly and professional
-- Provide specific information from the context
-- For contact info, always provide email, phone, LinkedIn
-- For pricing, explain it's project-based and suggest consultation
-- For CV, mention download button on website
-- Never make up information
-- Keep answers SHORT and to the point
+- Provide accurate, comprehensive, and helpful responses
+- Use markdown for formatting (bold, bullets, lists, etc.) to make responses clear and structured
+- Be friendly, professional, and conversational
+- Provide detailed information from the context when relevant
+- For contact info, provide all relevant details (email, phone, LinkedIn, GitHub)
+- For pricing, explain it's project-based and suggest consultation with full details
+- For CV/resume, mention the download button on the website
+- For technical questions, provide thorough explanations with examples when helpful
+- Break down complex topics into clear, digestible sections
+- Never make up information - stick to the context provided
+- Be as helpful and informative as possible while maintaining accuracy
 
 Response:`;
       } else {
         // General question (like "what is Next.js")
-        prompt = `You are a helpful and knowledgeable AI assistant. Answer the user's question clearly and concisely.
+        prompt = `You are a helpful, knowledgeable, and comprehensive AI assistant. Provide detailed, accurate, and informative responses that fully address the user's question.
 
 User Question: ${userMessage}
 
 Instructions:
-- Provide SHORT, accurate answers (maximum 5-6 sentences)
-- Be friendly, helpful, and conversational
-- Use simple language that's easy to understand
-- If the question is technical, give a brief but complete explanation
-- Use markdown formatting (bold, bullets) when it makes the answer clearer
-- Don't be too verbose - be concise but informative
-- Answer naturally like a helpful assistant
+- Provide thorough, detailed, and comprehensive answers
+- Be friendly, helpful, and conversational in your tone
+- Use clear, well-structured explanations with examples when helpful
+- For technical topics, explain concepts clearly with relevant details and context
+- Use markdown formatting (bold, bullets, numbered lists, code blocks) to make responses clear and readable
+- Break down complex topics into understandable sections
+- Include relevant examples, use cases, or analogies when they help clarify the topic
+- Be informative and educational - aim to teach and help the user understand thoroughly
+- Answer naturally and conversationally, as a knowledgeable expert would
+- Don't be overly brief - prioritize being helpful and comprehensive over being concise
 
 Response:`;
       }
@@ -569,7 +574,7 @@ Response:`;
       const result = await Promise.race([
         model.generateContent(prompt),
         new Promise((_, reject) =>
-          setTimeout(() => reject(new Error("Timeout")), 10000)
+          setTimeout(() => reject(new Error("Timeout")), 30000)
         ),
       ]);
 

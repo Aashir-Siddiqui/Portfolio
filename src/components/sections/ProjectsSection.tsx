@@ -80,30 +80,6 @@ export default function ProjectsSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
-          {/* Badge */}
-          <div className="inline-flex items-center space-x-2 px-5 py-2.5 mb-8 relative group">
-            <div className="absolute inset-0 bg-surface/80 dark:bg-surface/80 rounded-full border backdrop-blur-xl border-border"></div>
-            <div className="relative flex items-center space-x-2">
-              <span className="relative flex h-2.5 w-2.5">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-primary"></span>
-              </span>
-              <ShinyText
-                size="sm"
-                weight="normal"
-                speed={3}
-                intensity={1}
-                shineWidth={80}
-                pauseOnHover={true}
-                repeat="infinite"
-                gradientType="linear"
-                className="text-gray-light"
-              >
-                Portfolio Showcase
-              </ShinyText>
-            </div>
-          </div>
-
           {/* Heading */}
           <h2
             className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light text-foreground dark:text-foreground mb-6 leading-tight"

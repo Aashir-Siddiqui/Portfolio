@@ -117,7 +117,7 @@ export default function HeroSection() {
 
               <button
                 onClick={handleWhatsAppContact}
-                className="w-auto px-8 py-4 border border-border text-foreground rounded-lg font-semibold hover:bg-surface transition-all duration-500 cursor-pointer transform flex items-center justify-center gap-2"
+                className="w-auto px-8 py-4 border border-border text-foreground rounded-lg bg-background/80 font-semibold hover:bg-transparent transition-all duration-500 cursor-pointer transform flex items-center justify-center gap-2"
               >
                 <MessageSquare size={18} />
                 <span>Get in Touch</span>
