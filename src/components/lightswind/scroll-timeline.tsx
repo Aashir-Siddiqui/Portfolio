@@ -97,8 +97,8 @@ export const ScrollTimeline = ({
   });
 
   const smoothProgress = useSpring(scrollYProgress, {
-    stiffness: 100,
-    damping: 30,
+    stiffness: 80,
+    damping: 25,
     restDelta: 0.001,
   });
 
@@ -123,16 +123,16 @@ export const ScrollTimeline = ({
       animationOrder === "simultaneous"
         ? 0
         : animationOrder === "staggered"
-        ? index * 0.2
-        : index * 0.3;
+        ? index * 0.15
+        : index * 0.2;
 
     const initialStates = {
-      fade: { opacity: 0, y: 50 },
+      fade: { opacity: 0, y: 30 },
       slide: {
-        y: 80,
+        y: 50,
         opacity: 0,
       },
-      scale: { scale: 0.8, opacity: 0, y: 30 },
+      scale: { scale: 0.95, opacity: 0, y: 20 },
       flip: { rotateY: 90, opacity: 0 },
       none: { opacity: 1 },
     };
@@ -146,12 +146,12 @@ export const ScrollTimeline = ({
         scale: 1,
         rotateY: 0,
         transition: {
-          duration: 0.7,
+          duration: 0.5,
           delay: baseDelay,
-          ease: [0.25, 0.1, 0.25, 1.0] as [number, number, number, number],
+          ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number],
         },
       },
-      viewport: { once: false, margin: "-100px" },
+      viewport: { once: true, margin: "-50px" },
     };
   };
 
@@ -193,8 +193,8 @@ export const ScrollTimeline = ({
     const alignmentClassesDesktop =
       cardAlignment === "alternating"
         ? index % 2 === 0
-          ? "lg:mr-[calc(50%+20px)]"
-          : "lg:ml-[calc(50%+20px)]"
+          ? "lg:mr-[calc(50%+30px)]"
+          : "lg:ml-[calc(50%+30px)]"
         : cardAlignment === "left"
         ? "lg:mr-auto lg:ml-0"
         : "lg:ml-auto lg:mr-0";
@@ -207,7 +207,7 @@ export const ScrollTimeline = ({
       variantClasses[cardVariant],
       effectClasses[cardEffect],
       alignmentClassesDesktop,
-      "w-full lg:w-[calc(50%-40px)]"
+      "w-full lg:w-[calc(50%-50px)] max-w-full"
     );
   };
 
@@ -221,12 +221,15 @@ export const ScrollTimeline = ({
       )}
     >
       <div className="text-center py-16 px-4">
-        <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light text-foreground dark:text-foreground mb-6 leading-tight">
-          <span className="text-primary dark:text-primary font-medium">
+        <h2 className="text-4xl sm:text-5xl md:text-6xl font-light text-foreground dark:text-foreground mb-6 leading-tight">
+          <span
+            className="font-medium text-foreground dark:text-foreground leading-normal"
+            style={{ fontFamily: "var(--font-poppins)" }}
+          >
             {processData.heading}
           </span>
         </h2>
-        <p className="text-base sm:text-lg md:text-xl text-foreground dark:text-foreground max-w-3xl mx-auto leading-relaxed">
+        <p className="text-base sm:text-lg md:text-xl text-muted dark:text-muted max-w-3xl mx-auto leading-relaxed">
           {processData.subHeading}
         </p>
       </div>
@@ -304,7 +307,7 @@ export const ScrollTimeline = ({
                     timelineRefs.current[index] = el;
                   }}
                   className={cn(
-                    "relative flex items-center mb-20 py-4",
+                    "relative flex items-center mb-12 lg:mb-20 py-4",
                     "flex-col lg:flex-row",
                     cardAlignment === "alternating"
                       ? index % 2 === 0
@@ -331,29 +334,29 @@ export const ScrollTimeline = ({
                       animate={
                         index <= activeIndex
                           ? {
-                              // scale: [1, 1.3, 1],
+                              scale: [1, 1.15, 1],
                               boxShadow: [
                                 "0 0 0px rgba(99,102,241,0)",
-                                "0 0 12px rgba(99,102,241,0.6)",
+                                "0 0 10px rgba(99,102,241,0.5)",
                                 "0 0 0px rgba(99,102,241,0)",
                               ],
                             }
                           : {}
                       }
                       transition={{
-                        duration: 0.8,
+                        duration: 1.5,
                         repeat: Infinity,
-                        repeatDelay: 4,
+                        repeatDelay: 3,
                         ease: "easeInOut",
                       }}
                     />
                   </div>
                   <motion.div
-                    className={cn(getCardClasses(index), "mt-12 lg:mt-0")}
+                    className={cn(getCardClasses(index), "mt-8 lg:mt-0")}
                     variants={getCardVariants(index)}
                     initial="initial"
                     whileInView="whileInView"
-                    viewport={{ once: false, margin: "-100px" }}
+                    viewport={{ once: true, margin: "-50px" }}
                     style={parallaxIntensity > 0 ? { y: yOffset } : undefined}
                   >
                     <Card>

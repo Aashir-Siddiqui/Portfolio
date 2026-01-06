@@ -28,7 +28,7 @@ export default function SkillsSection() {
             Frameworks
           </span>
         </h2>
-        <p className="text-base sm:text-lg md:text-xl text-muted dark:text-foreground max-w-3xl mx-auto leading-relaxed">
+        <p className="text-base sm:text-lg md:text-xl text-muted dark:text-muted max-w-3xl mx-auto leading-relaxed">
           Modern technologies and platforms I work with to build scalable,
           high-performance solutions
         </p>

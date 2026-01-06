@@ -25,7 +25,7 @@ Aashir is a Full-Stack Developer focused on building fast, scalable, and product
 
 Tagline: Building scalable, secure, and maintainable full-stack solutions using modern technologies.
 
-Experience: 1 year of hands-on development experience building production-ready applications.
+Experience: 1+ year of hands-on development experience building production-ready applications.
 
 === TECHNICAL SKILLS ===
 
@@ -208,124 +208,114 @@ Current Status: Available for new projects
 Work Types: Freelance projects, Full-time positions, Contract work, Remote opportunities
 Response Time: Typically responds within 24 hours
 Start Date: Immediate start available
-
-=== RESPONSE GUIDELINES ===
-• Keep responses concise (2-4 sentences for simple questions)
-• Be friendly and professional
-• Use bullet points for lists
-• Highlight important information with bold
-• Provide specific examples when relevant
-• Direct to contact form for detailed inquiries
-• If asked about contact info, provide email, phone, LinkedIn, GitHub
-• If asked about pricing, explain it's project-based and suggest consultation
-• If asked about CV, mention the download button and email option
-• If asked FAQ questions, provide the stored answer
-• Always be accurate and never make up information
 `;
 
-// Enhanced fallback responses
-const FALLBACK_RESPONSES: { [key: string]: string } = {
-  contact: `You can reach Aashir through:
+// Fallback responses for portfolio-related questions
+const FALLBACK_RESPONSES = {
+  contact: `📧 **Contact Aashir:**
 
-**📧 Email:** aashirsiddiqui217@gmail.com
-**📱 Phone/WhatsApp:** +92 336 2746653
-**💼 LinkedIn:** linkedin.com/in/aashir-siddiqui-88a676394
-**💻 GitHub:** github.com/Aashir-Siddiqui
-**🌐 Portfolio:** aashirsiddiqui.vercel.app
+**Email:** aashirsiddiqui217@gmail.com
+**Phone/WhatsApp:** +92 336 2746653
+**LinkedIn:** linkedin.com/in/aashir-siddiqui-88a676394
+**GitHub:** github.com/Aashir-Siddiqui
+
+Feel free to reach out for project inquiries!`,
+
+  phone: `📱 You can reach Aashir at:
+**+92 336 2746653** (WhatsApp available)
+
+Or email at: **aashirsiddiqui217@gmail.com**`,
+
+  email: `📧 Email Aashir at:
+**aashirsiddiqui217@gmail.com**
 
 He typically responds within 24 hours!`,
 
-  phone: `Aashir's contact number is **+92 336 2746653**.
+  cv: `📄 **Download CV:**
 
-You can reach him via WhatsApp or regular phone call. He's available for project discussions and consultations!`,
+Visit Aashir's portfolio at **aashirsiddiqui.vercel.app** and click the "Download CV" button in the hero section.
 
-  email: `Aashir's email address is **aashirsiddiqui217@gmail.com**.
+Or contact him directly via email to request his detailed resume!`,
 
-Feel free to send him an email for project inquiries, collaborations, or any questions!`,
+  skills: `💻 **Aashir's Core Skills:**
 
-  cv: `You can download Aashir's CV in two ways:
+• **Frontend:** React, Next.js, TypeScript, Tailwind CSS
+• **Backend:** Node.js, Express.js, Python, FastAPI
+• **Databases:** MongoDB, MySQL, PostgreSQL
+• **APIs:** REST APIs, GraphQL, Apollo Server
+• **DevOps:** Docker, Redis, Kafka, Vercel
+• **Design:** Adobe Illustrator, Canva
 
-**1. From the website:** Click the **"Download CV"** button in the hero section at the top of the homepage.
+He builds production-ready full-stack applications!`,
 
-**2. Request directly:** Email him at aashirsiddiqui217@gmail.com and he'll send you his detailed CV!`,
+  services: `🚀 **Services Offered:**
 
-  skills: `Aashir's core skills include:
+• **Frontend Development** - React, Next.js, TypeScript
+• **Backend Development** - Node.js, Python, APIs
+• **Database Management** - MongoDB, PostgreSQL, MySQL
+• **Cloud Services** - Firebase, Supabase, Appwrite
+• **DevOps** - Docker, Redis, Kafka deployment
+• **UI/UX Design** - Modern, responsive interfaces
 
-**Frontend:**
-• React 19, Next.js 15, TypeScript
-• Tailwind CSS, shadcn/ui
+Contact for a free consultation!`,
 
-**Backend:**
-• Node.js, Express.js, FastAPI
-• MongoDB, MySQL, PostgreSQL
+  projects: `🎨 **Featured Projects:**
+
+• **MediVault AI** - AI healthcare platform (React, Node.js, MongoDB)
+• **Flash Chat** - Real-time messaging app (Socket.IO, Express)
+• **Agency AI** - Modern landing page
+• **Atriom Technologies** - 3D corporate website (Three.js)
+• **Currency Converter** - Real-time exchange rates
+• **Todo Master** - Full-stack task manager
+
+Visit his portfolio or GitHub for more details!`,
+
+  pricing: `💰 **Pricing:**
+
+Aashir's pricing is **project-based** and depends on:
+• Project scope & complexity
+• Timeline & features
+• Technology stack
+• Maintenance needs
+
+📧 Contact him for a **free consultation** and custom quote at:
+**aashirsiddiqui217@gmail.com**`,
+
+  about: `👋 **About Aashir:**
+
+Aashir is a **Full-Stack Developer** with **1+ year** of experience building scalable, production-ready web applications.
+
+He specializes in:
+• React, Next.js, TypeScript
+• Node.js, Express, Python
+• MongoDB, PostgreSQL
 • GraphQL, REST APIs
-
-**DevOps & Tools:**
 • Docker, Redis, Kafka
-• Vercel, Netlify
-• Git, GitHub
 
-He's proficient in building complete full-stack applications!`,
+He's available for freelance and full-time opportunities!`,
 
-  services: `Aashir offers comprehensive development services:
+  availability: `✅ **Availability:**
 
-**✨ Frontend Development** - React, Next.js, TypeScript
-**✨ Backend Development** - Node.js, Express, FastAPI
-**✨ API Development** - REST & GraphQL APIs
-**✨ Database Management** - MongoDB, MySQL, PostgreSQL
-**✨ DevOps & Deployment** - Docker, Vercel, Netlify
-**✨ UI/UX Design** - Modern, responsive interfaces
+Aashir is currently **available** for:
+• Freelance projects
+• Full-time positions
+• Contract work
+• Remote opportunities
 
-Contact him to discuss your project needs!`,
+**Immediate start available!**
 
-  projects: `Aashir's featured projects:
+Contact: **aashirsiddiqui217@gmail.com**`,
 
-**🚀 MediVault AI** - AI-powered healthcare platform with OCR
-**💬 Flash Chat** - Real-time chat with WebSockets
-**🎨 Agency AI** - Modern landing page
-**🏢 Atriom Technologies** - Corporate site with 3D visuals
-**💰 Currency Converter** - Real-time exchange rates
-**📝 Todo Master** - Full-stack task management
+  process: `🔧 **Development Process:**
 
-Visit the Projects section on his website for details!`,
+1. **Discovery** - Understanding your goals and requirements
+2. **Planning** - Wireframes, system design, tech stack selection
+3. **Development** - Building with clean, maintainable code
+4. **Testing** - Ensuring performance and security
+5. **Deployment** - Launching on cloud platforms
+6. **Maintenance** - Ongoing support and updates`,
 
-  pricing: `Aashir's pricing is **project-based** and depends on:
-
-• Project scope and complexity
-• Timeline and features
-• Technology stack required
-• Ongoing maintenance needs
-
-For an accurate quote, contact him for a **free consultation**:
-📧 aashirsiddiqui217@gmail.com
-📱 +92 336 2746653`,
-
-  about: `**Aashir Siddiqui** is a Full-Stack Developer & Creative Engineer based in Karachi, Pakistan.
-
-He specializes in building scalable, production-ready web applications using React, Next.js, Node.js, and AI integration. With 1 year of experience, he focuses on clean code, performance optimization, and modern architecture.
-
-Currently available for freelance projects and full-time opportunities!`,
-
-  availability: `Aashir is **currently available** for:
-
-✅ Freelance projects
-✅ Full-time positions
-✅ Contract work
-✅ Remote opportunities
-✅ Long-term collaborations
-
-He can start immediately and typically responds within 24 hours. Contact him to discuss your project!`,
-
-  process: `Aashir follows a structured development process:
-
-**1. Discovery & Requirements** - Understanding your goals
-**2. Planning & Design** - System architecture and wireframes
-**3. Development** - Building with modern frameworks
-**4. Testing & QA** - Ensuring quality and performance
-**5. Deployment** - Production-ready launch
-**6. Maintenance** - Ongoing support and updates`,
-
-  experience: `Aashir has **1 year** of hands-on development experience.
+  experience: `Aashir has **1+ year** of hands-on development experience.
 
 He's built:
 • 10+ production applications
@@ -338,12 +328,12 @@ He's skilled in full-stack development, AI integration, and modern UI engineerin
 
   technologies: `Aashir works with modern technologies:
 
-**Frontend:** React, Next.js, TypeScript, Tailwind CSS
-**Backend:** Node.js, Express.js, Python, FastAPI
-**Databases:** MongoDB, MySQL, PostgreSQL
-**APIs:** GraphQL, REST APIs, Apollo Server
-**DevOps:** Docker, Redis, Kafka, Vercel
-**Design:** Adobe Illustrator, Canva
+• **Frontend:** React, Next.js, TypeScript, Tailwind CSS
+• **Backend:** Node.js, Express.js, Python, FastAPI
+• **Databases:** MongoDB, MySQL, PostgreSQL
+• **APIs:** GraphQL, REST APIs, Apollo Server
+• **DevOps:** Docker, Redis, Kafka, Vercel
+• **Design:** Adobe Illustrator, Canva
 
 He stays updated with the latest tech trends!`,
 
@@ -357,21 +347,20 @@ You can find his open-source projects, code samples, and contributions there. Ch
 
 You can view his professional experience, connect for networking, or send a message for project inquiries!`,
 
-  default: `Hi! I'm Aashir's AI assistant. I can help you learn about:
+  default: `Hi! I'm Aashir's AI assistant. I can help you with questions about:
 
-• **Skills** - Technologies & expertise
+• **Aashir's Skills** - Technologies & expertise
 • **Projects** - Portfolio & case studies
-• **Services** - What Aashir offers
+• **Services** - What he offers
 • **Contact** - Email, phone, LinkedIn
-• **Pricing** - Project rates & consultation
-• **CV/Resume** - How to download
-• **Availability** - Current status
+• **Pricing** - Project rates
+• **General Questions** - Anything else!
 
 What would you like to know?`,
 };
 
-// Enhanced keyword matching
-function getFallbackResponse(message: string): string {
+// Enhanced keyword matching for portfolio questions
+function getFallbackResponseForPortfolio(message: string): string {
   const msg = message.toLowerCase();
 
   // Contact related
@@ -468,7 +457,32 @@ function getFallbackResponse(message: string): string {
   if (msg.includes("github")) return FALLBACK_RESPONSES.github;
   if (msg.includes("linkedin")) return FALLBACK_RESPONSES.linkedin;
 
-  return FALLBACK_RESPONSES.default;
+  return "";
+}
+
+// Check if question is about Aashir's portfolio
+function isPortfolioQuestion(message: string): boolean {
+  const portfolioKeywords = [
+    "aashir",
+    "your",
+    "you",
+    "portfolio",
+    "project",
+    "skill",
+    "experience",
+    "contact",
+    "email",
+    "phone",
+    "service",
+    "price",
+    "cv",
+    "resume",
+    "hire",
+    "available",
+  ];
+
+  const msg = message.toLowerCase();
+  return portfolioKeywords.some((keyword) => msg.includes(keyword));
 }
 
 export async function POST(req: NextRequest) {
@@ -488,27 +502,42 @@ export async function POST(req: NextRequest) {
 
     const apiKey = process.env.GEMINI_API_KEY;
 
+    // Check if it's a portfolio question or general question (before API call)
+    const isAboutPortfolio = isPortfolioQuestion(userMessage);
+
     if (!apiKey) {
       console.log("⚠️ No API key, using fallback");
-      return NextResponse.json({ message: getFallbackResponse(userMessage) });
+      const fallback = getFallbackResponseForPortfolio(userMessage);
+      return NextResponse.json({
+        message: fallback || FALLBACK_RESPONSES.default,
+      });
     }
 
     try {
       const genAI = new GoogleGenerativeAI(apiKey);
       const model = genAI.getGenerativeModel({
-        model: "gemini-1.5-flash",
+        model: "gemini-2.5-flash",
         generationConfig: {
           temperature: 0.7,
-          maxOutputTokens: 500,
+          maxOutputTokens: 400, // Slightly longer for general questions
         },
       });
 
-      const prompt = `${PORTFOLIO_CONTEXT}
+      console.log(
+        `📝 Question Type: ${isAboutPortfolio ? "Portfolio" : "General"}`
+      );
+      console.log(`💬 User Message: ${userMessage}`);
+
+      let prompt = "";
+
+      if (isAboutPortfolio) {
+        // Portfolio-related question
+        prompt = `${PORTFOLIO_CONTEXT}
 
 User Question: ${userMessage}
 
 Instructions: 
-- Provide accurate, concise responses (2-4 sentences for simple questions)
+- Provide accurate, concise responses (2-4 sentences maximum)
 - Use markdown for formatting (bold, bullets, etc.)
 - Be friendly and professional
 - Provide specific information from the context
@@ -516,8 +545,26 @@ Instructions:
 - For pricing, explain it's project-based and suggest consultation
 - For CV, mention download button on website
 - Never make up information
+- Keep answers SHORT and to the point
 
 Response:`;
+      } else {
+        // General question (like "what is Next.js")
+        prompt = `You are a helpful and knowledgeable AI assistant. Answer the user's question clearly and concisely.
+
+User Question: ${userMessage}
+
+Instructions:
+- Provide SHORT, accurate answers (maximum 5-6 sentences)
+- Be friendly, helpful, and conversational
+- Use simple language that's easy to understand
+- If the question is technical, give a brief but complete explanation
+- Use markdown formatting (bold, bullets) when it makes the answer clearer
+- Don't be too verbose - be concise but informative
+- Answer naturally like a helpful assistant
+
+Response:`;
+      }
 
       const result = await Promise.race([
         model.generateContent(prompt),
@@ -538,7 +585,20 @@ Response:`;
     } catch (aiError: any) {
       console.error("AI Error:", aiError.message);
       console.log("⚠️ Using fallback response");
-      return NextResponse.json({ message: getFallbackResponse(userMessage) });
+
+      // Only use portfolio fallback for portfolio questions
+      if (isAboutPortfolio) {
+        const fallback = getFallbackResponseForPortfolio(userMessage);
+        if (fallback) {
+          return NextResponse.json({ message: fallback });
+        }
+      }
+
+      // General fallback for all questions
+      return NextResponse.json({
+        message:
+          "Sorry, I'm having trouble connecting right now. Please try again in a moment! 🔄",
+      });
     }
   } catch (error: any) {
     console.error("API Error:", error);

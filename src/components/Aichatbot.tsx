@@ -1,7 +1,16 @@
 "use client";
 
 import React, { useState, useRef, useEffect } from "react";
-import { X, Send, Bot, User, Loader2, Sparkles, Minimize2 } from "lucide-react";
+import {
+  X,
+  Send,
+  Bot,
+  User,
+  Loader2,
+  Sparkles,
+  Minimize2,
+  BotMessageSquare,
+} from "lucide-react";
 
 interface Message {
   id: string;
@@ -32,7 +41,7 @@ export default function AIChatbot() {
   const inputRef = useRef<HTMLInputElement>(null);
 
   // Constants
-  const MESSAGE_LIMIT = 60;
+  const MESSAGE_LIMIT = 50;
   const COOLDOWN_MINUTES = 30;
   const STORAGE_KEY = "chatbot_rate_limit";
 
@@ -203,9 +212,50 @@ export default function AIChatbot() {
   };
 
   const parseMarkdown = (text: string) => {
-    const parts = text.split(/(\*\*.*?\*\*|\*.*?\*)/g);
+    // Split by lines to handle lists and paragraphs
+    const lines = text.split("\n");
+
+    return lines.map((line, lineIndex) => {
+      // Handle bullet points (• or *)
+      if (line.trim().startsWith("•") || line.trim().startsWith("*")) {
+        const content = line.trim().replace(/^[•*]\s*/, "");
+        return (
+          <div key={lineIndex} className="flex gap-2 my-1">
+            <span className="text-primary mt-0.5">•</span>
+            <span>{parseLine(content)}</span>
+          </div>
+        );
+      }
+
+      // Handle numbered lists
+      if (/^\d+\.\s/.test(line.trim())) {
+        const content = line.trim().replace(/^\d+\.\s*/, "");
+        return (
+          <div key={lineIndex} className="flex gap-2 my-1">
+            <span className="text-primary font-semibold">
+              {line.match(/^\d+/)?.[0]}.
+            </span>
+            <span>{parseLine(content)}</span>
+          </div>
+        );
+      }
+
+      // Regular paragraphs
+      return line.trim() ? (
+        <p key={lineIndex} className="my-1">
+          {parseLine(line)}
+        </p>
+      ) : (
+        <br key={lineIndex} />
+      );
+    });
+  };
+
+  const parseLine = (text: string) => {
+    const parts = text.split(/(\*\*.*?\*\*|\[.*?\]\(.*?\)|https?:\/\/[^\s]+)/g);
 
     return parts.map((part, index) => {
+      // Bold text **text**
       if (part.startsWith("**") && part.endsWith("**")) {
         return (
           <strong key={index} className="font-semibold text-foreground">
@@ -213,13 +263,40 @@ export default function AIChatbot() {
           </strong>
         );
       }
-      if (part.startsWith("*") && part.endsWith("*")) {
+
+      // Links [text](url)
+      if (part.startsWith("[") && part.includes("](")) {
+        const match = part.match(/\[(.*?)\]\((.*?)\)/);
+        if (match) {
+          return (
+            <a
+              key={index}
+              href={match[2]}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-primary hover:underline"
+            >
+              {match[1]}
+            </a>
+          );
+        }
+      }
+
+      // Direct URLs
+      if (part.match(/^https?:\/\//)) {
         return (
-          <em key={index} className="italic">
-            {part.slice(1, -1)}
-          </em>
+          <a
+            key={index}
+            href={part}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-primary hover:underline break-all"
+          >
+            {part}
+          </a>
         );
       }
+
       return <span key={index}>{part}</span>;
     });
   };
@@ -230,26 +307,24 @@ export default function AIChatbot() {
       {!isOpen && (
         <button
           onClick={() => setIsOpen(true)}
-          className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-[1000] w-14 h-14 sm:w-16 sm:h-16 bg-gradient-to-br from-primary via-primary-hover to-primary-dark text-background dark:text-background rounded-full flex items-center justify-center transition-all duration-300 group cursor-pointer"
-          aria-label="Open chat"
+          className="fixed bottom-6 right-6 z-50 group cursor-pointer"
+          aria-label="Open AI chatbot"
         >
-          {/* Chat Icon SVG */}
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="26"
-            height="26"
-            viewBox="0 0 24 24"
-            className="sm:w-[30px] sm:h-[30px] drop-shadow-lg group-hover:scale-110 transition-transform duration-300"
-          >
-            <path
-              fill="currentColor"
-              d="M18 3a4 4 0 0 1 4 4v8a4 4 0 0 1-4 4h-4.724l-4.762 2.857a1 1 0 0 1-1.508-.743L7 21v-2H6a4 4 0 0 1-3.995-3.8L2 15V7a4 4 0 0 1 4-4zm-2.8 9.286a1 1 0 0 0-1.414.014a2.5 2.5 0 0 1-3.572 0a1 1 0 0 0-1.428 1.4a4.5 4.5 0 0 0 6.428 0a1 1 0 0 0-.014-1.414M9.51 8H9.5a1 1 0 1 0 0 2h.01a1 1 0 0 0 0-2m5 0h-.01a1 1 0 0 0 0 2h.01a1 1 0 0 0 0-2"
+          {/* Animated Wavy Circles */}
+          <div className="absolute inset-0 flex items-center justify-center">
+            <div
+              className="absolute w-12 h-12 rounded-full border-2 border-primary/30 animate-ping"
+              style={{ animationDuration: "2s" }}
             />
-          </svg>
+          </div>
 
-          {/* Status Dot - Mobile Optimized */}
-          <div className="absolute bottom-0.5 right-0.5 sm:bottom-1 sm:right-1 w-3 h-3 sm:w-3.5 sm:h-3.5 bg-green-500 rounded-full border-2 border-background shadow-lg">
-            <div className="absolute inset-0 bg-green-500 rounded-full animate-ping" />
+          {/* Main Button with Animated Bot Icon */}
+          <div className="relative w-14 h-14 bg-primary hover:bg-primary-hover text-background rounded-full shadow-lg flex items-center justify-center transition-all hover:scale-110 active:scale-95">
+            {/* Animated Bot Icon - Moves Up and Down */}
+            <BotMessageSquare
+              className="w-6 h-6 animate-bounce"
+              style={{ animationDuration: "1.5s" }}
+            />
           </div>
         </button>
       )}
@@ -259,7 +334,7 @@ export default function AIChatbot() {
         <div
           className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 w-[420px] max-w-[calc(100vw-32px)] bg-background/95 dark:bg-background/95 backdrop-blur-2xl border border-border/50 dark:border-border/50 rounded-2xl sm:rounded-3xl shadow-2xl flex flex-col overflow-hidden transition-all duration-300"
           style={{
-            height: isMinimized ? "80px" : "600px",
+            height: isMinimized ? "80px" : "84vh",
             maxHeight: isMinimized ? "80px" : "calc(100vh - 32px)",
             animation: "smoothSlideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1)",
           }}
@@ -288,7 +363,7 @@ export default function AIChatbot() {
                     <Bot className="w-6 h-6 text-background" />
                   </div>
                   {/* Status Indicator */}
-                  <div className="absolute -bottom-1 -right-1 w-4 h-4 bg-green-500 rounded-full border-2 border-background shadow-md">
+                  <div className="absolute -bottom-1 -right-1 w-3 h-3 bg-green-500 rounded-full border-2 border-background shadow-md">
                     <div className="absolute inset-0 bg-green-500 rounded-full animate-ping opacity-75" />
                   </div>
                 </div>
@@ -299,8 +374,8 @@ export default function AIChatbot() {
                     AI Assistant
                     <Sparkles className="w-4 h-4 text-primary" />
                   </h3>
-                  <p className="text-xs text-muted dark:text-muted flex items-center gap-1">
-                    Online • Quick responses
+                  <p className="text-xs text-muted dark:text-muted">
+                    {isLoading ? "Typing..." : "Online"}
                   </p>
                 </div>
               </div>

@@ -24,6 +24,7 @@ export default function Navbar() {
         "services",
         "process",
         "projects",
+        "testimonials",
         "faq",
         "contact",
       ];
@@ -56,6 +57,7 @@ export default function Navbar() {
     { name: "Services", href: "services" },
     { name: "Process", href: "process" },
     { name: "Projects", href: "projects" },
+    { name: "Testimonials", href: "testimonials" },
     { name: "FAQ", href: "faq" },
   ];
 
@@ -81,9 +83,9 @@ export default function Navbar() {
       <div
         className={`relative transition-all duration-700 ease-[cubic-bezier(0.34,1.56,0.64,1)] ${
           scrolled
-            ? "rounded-2xl border bg-background/80 dark:bg-background/80"
-            : "bg-none rounded-none border-0"
-        } backdrop-blur-xl border-border`}
+            ? "rounded-2xl border bg-background/80 dark:bg-background/80 backdrop-blur-xl"
+            : "bg-transparent rounded-none border-0"
+        } border-border`}
       >
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div
@@ -124,7 +126,7 @@ export default function Navbar() {
                   onClick={() => scrollToSection(link.href)}
                   className={`relative cursor-pointer px-4 py-2 rounded-xl font-medium transition-all duration-300 transform hover:scale-105 group ${
                     activeSection === link.href
-                      ? "text-primary"
+                      ? "text-foreground"
                       : "text-muted hover:text-foreground"
                   }`}
                   style={{
@@ -194,19 +196,19 @@ export default function Navbar() {
         </div>
 
         <div
-          className={`md:hidden overflow-hidden transition-all duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)] ${
+          className={`md:hidden absolute left-0 right-0 top-full mt-2 mx-2 overflow-hidden transition-all duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)] ${
             mobileMenuOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
           }`}
         >
-          <div className="border-t border-border/50 px-4 py-4 space-y-1">
+          <div className="rounded-2xl border border-border bg-background/99 dark:bg-background/99 backdrop-blur-xl px-4 py-4 space-y-1 shadow-lg">
             {navLinks.map((link, index) => (
               <button
                 key={link.name}
                 onClick={() => scrollToSection(link.href)}
                 className={`w-full text-left px-4 py-3 rounded-xl font-medium transition-all duration-500 transform ${
                   activeSection === link.href
-                    ? "text-primary bg-surface/70"
-                    : "text-muted hover:text-foreground hover:bg-surface/70"
+                    ? "text-primary"
+                    : "text-muted hover:text-foreground"
                 } ${
                   mobileMenuOpen
                     ? "translate-x-0 opacity-100"
@@ -234,7 +236,7 @@ export default function Navbar() {
                 <ToggleTheme
                   animationType="circle-spread"
                   duration={500}
-                  className="p-3 rounded-xl transition-all duration-300 transform hover:scale-105 text-muted hover:text-foreground hover:bg-surface/70"
+                  className="p-3 rounded-xl transition-all duration-300 transform hover:scale-105 text-muted hover:text-foreground"
                 />
               </div>
               <AnimatedButton

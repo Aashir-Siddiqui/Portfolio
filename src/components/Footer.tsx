@@ -259,9 +259,9 @@ export default function Footer() {
                   <li key={link.name}>
                     <button
                       onClick={() => scrollToSection(link.href)}
-                      className="text-sm text-muted dark:text-muted hover:text-primary dark:hover:text-primary transition-colors duration-300 cursor-pointer flex items-center group"
+                      className="text-sm text-muted dark:text-muted hover:text-foreground dark:hover:text-foreground transition-colors duration-300 cursor-pointer flex items-center group"
                     >
-                      <span className="w-0 group-hover:w-2 h-0.5 bg-primary transition-all duration-300 mr-0 group-hover:mr-2"></span>
+                      <span className="w-0 group-hover:w-2 h-0.5 bg-foreground transition-all duration-300 mr-0 group-hover:mr-2"></span>
                       {link.name}
                     </button>
                   </li>
@@ -279,9 +279,9 @@ export default function Footer() {
                   <li key={link.name}>
                     <button
                       onClick={() => scrollToSection(link.href)}
-                      className="text-sm text-muted dark:text-muted hover:text-primary dark:hover:text-primary transition-colors duration-300 cursor-pointer flex items-center group"
+                      className="text-sm text-muted dark:text-muted hover:text-foreground dark:hover:text-foreground transition-colors duration-300 cursor-pointer flex items-center group"
                     >
-                      <span className="w-0 group-hover:w-2 h-0.5 bg-primary transition-all duration-300 mr-0 group-hover:mr-2"></span>
+                      <span className="w-0 group-hover:w-2 h-0.5 bg-foreground transition-all duration-300 mr-0 group-hover:mr-2"></span>
                       {link.name}
                     </button>
                   </li>
@@ -301,7 +301,7 @@ export default function Footer() {
                     <li key={index}>
                       <a
                         href={info.href}
-                        className="flex items-start space-x-3 text-sm text-muted dark:text-muted hover:text-primary dark:hover:text-primary transition-colors duration-300 group"
+                        className="flex items-start space-x-3 text-sm text-muted dark:text-muted hover:text-foreground dark:hover:text-foreground transition-colors duration-300 group"
                       >
                         <Icon className="w-5 h-5 flex-shrink-0 mt-0.5 group-hover:scale-110 transition-transform duration-300 cursor-pointer" />
                         <span className="leading-relaxed">{info.text}</span>

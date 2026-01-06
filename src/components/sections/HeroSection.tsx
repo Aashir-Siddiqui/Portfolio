@@ -4,6 +4,7 @@ import ShinyText from "@/components/lightswind/shiny-text";
 import AnimatedButton from "../AnimatedButton";
 import { MessageSquare } from "lucide-react";
 import { Download } from "../lightswind/Download";
+import Image from "next/image";
 
 export default function HeroSection() {
   const handleDownloadCV = () => {
@@ -35,6 +36,29 @@ export default function HeroSection() {
       id="home"
       className="relative min-h-screen overflow-hidden bg-background transition-colors duration-300"
     >
+      {/* Background Image - Completely hidden in Light Mode, Visible in Dark Mode */}
+      <div className="hero-bg-container absolute inset-0 w-full h-full overflow-hidden">
+        <Image
+          src="/hero.png"
+          alt="Hero Background"
+          fill
+          priority
+          className="hero-image object-cover object-top pointer-events-none transition-opacity duration-500"
+          style={{ objectPosition: "top center" }}
+        />
+
+        {/* Gradient Overlays - Only visible in dark mode */}
+        {/* Top gradient for navbar area */}
+        {/* <div className="hero-gradient absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-background to-transparent transition-opacity duration-500"></div> */}
+
+        {/* Bottom gradient to hide any visible line */}
+        <div className="hero-gradient absolute inset-x-0 -bottom-1 h-80 bg-gradient-to-t from-background via-background/80 to-transparent transition-opacity duration-500"></div>
+
+        {/* Overall subtle gradient for better blending */}
+        <div className="hero-gradient absolute inset-0 bg-gradient-to-b from-background/40 via-transparent to-background/60 transition-opacity duration-500"></div>
+      </div>
+
+      {/* Content Section */}
       <section className="relative z-10 pt-32 pb-20 px-4">
         <div className="max-w-7xl mx-auto">
           <div className="text-center">
@@ -76,7 +100,7 @@ export default function HeroSection() {
 
             {/* Subtitle */}
             <p className="text-md mb-10 max-w-2xl mx-auto text-foreground text-sm md:text-lg transition-colors duration-300">
-              I build modern, scalable, and high-performance web applications
+              I build modern, scalable, and high performance web applications
               using React, Next.js, Node.js, and GraphQL with clean UI and
               powerful backend architecture.
             </p>

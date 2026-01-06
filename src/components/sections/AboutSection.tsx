@@ -25,13 +25,15 @@ export default function AboutSection() {
       <div className="max-w-7xl mx-auto">
         {/* Page Header */}
         <div className="text-center mb-16">
-          <div className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light mb-4">
-            <span className="text-foreground dark:text-foreground">About </span>
-            <span className="text-primary dark:text-primary font-medium">
-              Me
+          <div className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light mb-6">
+            <span
+              className="font-medium text-foreground dark:text-foreground leading-normal"
+              style={{ fontFamily: "var(--font-poppins)" }}
+            >
+              About Me
             </span>
           </div>
-          <p className="text-base sm:text-lg md:text-xl text-foreground dark:text-foreground max-w-3xl mx-auto">
+          <p className="text-base sm:text-lg md:text-xl text-muted dark:text-muted max-w-3xl mx-auto">
             {aboutData.tagline}
           </p>
         </div>

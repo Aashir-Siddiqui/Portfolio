@@ -18,12 +18,12 @@
 
 .dark {
   /* Dark Mode Colors */
-  --background: #171717;
+  --background: #0a0a0a;
   --foreground: #e5e5e5;
   --primary: #f5c246;
   --primary-hover: #e0b037;
   --primary-dark: #c9a033;
-  --surface: #1f1f1f;
+  --surface: #171717;
   --surface-light: #2a2a2a;
   --border: #333333;
   --muted: #888888;
@@ -108,4 +108,31 @@ html {
 ::view-transition-old(root),
 ::view-transition-new(root) {
   animation-duration: 0.4s;
+}
+
+/* Custom class for hero background - Hidden in light, visible in dark */
+.hero-bg-container {
+  display: none;
+}
+
+.dark .hero-bg-container {
+  display: block;
+}
+
+/* Custom class for hero image opacity */
+.hero-image {
+  opacity: 0;
+}
+
+.dark .hero-image {
+  opacity: 0.8;
+}
+
+/* Custom class for hero gradients */
+.hero-gradient {
+  opacity: 0;
+}
+
+.dark .hero-gradient {
+  opacity: 3;
 }

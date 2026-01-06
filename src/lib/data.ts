@@ -71,7 +71,7 @@ export const allSkills = [
 ];
 
 export const servicesData = {
-  heading: "Services",
+  heading: "My Services",
   subHeading:
     "I provide end-to-end development services focused on performance, scalability, and clean architecture.",
 
@@ -411,6 +411,74 @@ export const projectsData = {
         "CRUD Operations",
       ],
       type: "Full-Stack",
+    },
+  ],
+};
+
+export const testimonialsData = {
+  heading: "What Clients Say",
+  subHeading:
+    "Feedback from clients and collaborators I've worked with on real-world projects.",
+  testimonials: [
+    {
+      id: 1,
+      name: "Ahmed Raza",
+      role: "Startup Founder",
+      company: "HealthTech Solutions",
+      feedback:
+        "Aashir delivered a highly scalable and secure application exactly as promised. His problem-solving skills and attention to detail truly set him apart.",
+      rating: 5,
+      avatar: "/testimonials/upwork.svg",
+    },
+    {
+      id: 2,
+      name: "Sarah Khan",
+      role: "Product Manager",
+      company: "SaaSify",
+      feedback:
+        "Working with Aashir was a great experience. He understands requirements quickly and translates them into clean, efficient, and maintainable code.",
+      rating: 5,
+      avatar: "/testimonials/facebook.svg",
+    },
+    {
+      id: 3,
+      name: "Usman Ali",
+      role: "CTO",
+      company: "FinTech Hub",
+      feedback:
+        "Aashir handled both backend and frontend with precision. The project was delivered on time and exceeded expectations.",
+      rating: 5,
+      avatar: "/testimonials/linkedin.svg",
+    },
+    {
+      id: 4,
+      name: "Saif Malik",
+      role: "Agency Owner",
+      company: "Creative Digital Studio",
+      feedback:
+        "Aashir has a strong eye for both performance and design. He built a fast, modern website that significantly improved our online presence.",
+      rating: 5,
+      avatar: "/testimonials/upwork.svg",
+    },
+    {
+      id: 5,
+      name: "Bilal Ahmed",
+      role: "Operations Manager",
+      company: "E-Commerce Brand",
+      feedback:
+        "The automation and backend systems Aashir implemented saved us hours of manual work. Reliable, skilled, and easy to communicate with.",
+      rating: 5,
+      avatar: "/testimonials/twitter.svg",
+    },
+    {
+      id: 6,
+      name: "Iqbal Ahmed",
+      role: "Tech Lead",
+      company: "Global Software House",
+      feedback:
+        "Aashir's technical depth in full-stack development and APIs is impressive. He brings clarity, structure, and quality to every project.",
+      rating: 5,
+      avatar: "/testimonials/linkedin.svg",
     },
   ],
 };

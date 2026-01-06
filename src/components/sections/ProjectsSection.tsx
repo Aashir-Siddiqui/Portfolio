@@ -109,7 +109,8 @@ export default function ProjectsSection() {
             className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light text-foreground dark:text-foreground mb-6 leading-tight"
             style={{ fontFamily: "var(--font-poppins)" }}
           >
-            <span className="text-primary dark:text-primary font-medium">
+            <span className="font-medium text-foreground dark:text-foreground leading-normal"
+              style={{ fontFamily: "var(--font-poppins)" }}>
               {projectsData.heading}
             </span>
           </h2>
@@ -167,11 +168,11 @@ export default function ProjectsSection() {
             </div>
           </div>
 
-          {/* Navigation Buttons */}
+          {/* Navigation Buttons - Desktop */}
           <button
             onClick={scrollPrev}
             disabled={!canScrollPrev}
-            className={`hidden md:flex absolute left-0 top-1/2 -translate-y-1/2 -translate-x-12 w-12 h-12 items-center justify-center rounded-full bg-surface/80 dark:bg-surface/80 backdrop-blur-xl border border-border/30 dark:border-border/30 transition-all duration-300 ${
+            className={`hidden md:flex absolute left-5 top-1/2 -translate-y-1/2 -translate-x-12 w-12 h-12 items-center justify-center rounded-full bg-surface/80 dark:bg-surface/80 backdrop-blur-xl border border-border/30 dark:border-border/30 transition-all duration-300 ${
               canScrollPrev
                 ? "text-foreground dark:text-foreground hover:bg-primary hover:text-background dark:hover:text-background hover:border-primary cursor-pointer"
                 : "text-muted/30 dark:text-muted/30 cursor-not-allowed"
@@ -183,7 +184,7 @@ export default function ProjectsSection() {
           <button
             onClick={scrollNext}
             disabled={!canScrollNext}
-            className={`hidden md:flex absolute right-0 top-1/2 -translate-y-1/2 translate-x-12 w-12 h-12 items-center justify-center rounded-full bg-surface/80 dark:bg-surface/80 backdrop-blur-xl border border-border/30 dark:border-border/30 transition-all duration-300 ${
+            className={`hidden md:flex absolute right-5 top-1/2 -translate-y-1/2 translate-x-12 w-12 h-12 items-center justify-center rounded-full bg-surface/80 dark:bg-surface/80 backdrop-blur-xl border border-border/30 dark:border-border/30 transition-all duration-300 ${
               canScrollNext
                 ? "text-foreground dark:text-foreground hover:bg-primary hover:text-background dark:hover:text-background hover:border-primary cursor-pointer"
                 : "text-muted/30 dark:text-muted/30 cursor-not-allowed"
@@ -191,32 +192,30 @@ export default function ProjectsSection() {
           >
             <ChevronRight className="w-6 h-6" />
           </button>
-        </div>
 
-        {/* Mobile Navigation Buttons */}
-        <div className="flex md:hidden items-center justify-center gap-4 mt-8">
+          {/* Navigation Buttons - Mobile (Left & Right Sides) */}
           <button
             onClick={scrollPrev}
             disabled={!canScrollPrev}
-            className={`w-12 h-12 flex items-center justify-center rounded-full bg-surface/80 dark:bg-surface/80 backdrop-blur-xl border border-border/30 dark:border-border/30 transition-all duration-300 ${
+            className={`flex md:hidden absolute -left-2 top-1/3 -translate-y-1 w-10 h-10 items-center justify-center rounded-full bg-surface/80 dark:bg-surface/80 backdrop-blur-xl border border-border/30 dark:border-border/30 transition-all duration-300 z-10 ${
               canScrollPrev
-                ? "text-foreground dark:text-foreground hover:bg-primary hover:text-background dark:hover:text-background"
+                ? "text-foreground dark:text-foreground hover:bg-primary hover:text-background dark:hover:text-background hover:border-primary cursor-pointer"
                 : "text-muted/30 dark:text-muted/30 cursor-not-allowed"
             }`}
           >
-            <ChevronLeft className="w-6 h-6" />
+            <ChevronLeft className="w-5 h-5" />
           </button>
 
           <button
             onClick={scrollNext}
             disabled={!canScrollNext}
-            className={`w-12 h-12 flex items-center justify-center rounded-full bg-surface/80 dark:bg-surface/80 backdrop-blur-xl border border-border/30 dark:border-border/30 transition-all duration-300 ${
+            className={`flex md:hidden absolute -right-2 top-1/3 -translate-y-1 w-10 h-10 items-center justify-center rounded-full bg-surface/80 dark:bg-surface/80 backdrop-blur-xl border border-border/30 dark:border-border/30 transition-all duration-300 z-10 ${
               canScrollNext
-                ? "text-foreground dark:text-foreground hover:bg-primary hover:text-background dark:hover:text-background"
+                ? "text-foreground dark:text-foreground hover:bg-primary hover:text-background dark:hover:text-background hover:border-primary cursor-pointer"
                 : "text-muted/30 dark:text-muted/30 cursor-not-allowed"
             }`}
           >
-            <ChevronRight className="w-6 h-6" />
+            <ChevronRight className="w-5 h-5" />
           </button>
         </div>
 
@@ -299,7 +298,7 @@ function ProjectCard({ project }: ProjectCardProps) {
 
             {/* Play/View Button Overlay */}
             <div className="absolute inset-0 bg-black/0 group-hover/video:bg-black/10 flex items-center justify-center transition-all duration-300">
-              <div className="w-14 h-14 sm:w-16 sm:h-16 bg-[#0077B5] rounded-full flex items-center justify-center transform transition-all duration-300 opacity-0 group-hover/video:opacity-100 group-hover/video:scale-110">
+              <div className="w-14 h-14 sm:w-16 sm:h-16 bg-primary dark:bg-primary rounded-full flex items-center justify-center transform transition-all duration-300 opacity-0 group-hover/video:opacity-100 group-hover/video:scale-110">
                 <ExternalLink className="w-7 h-7 sm:w-8 sm:h-8 text-white" />
               </div>
             </div>
