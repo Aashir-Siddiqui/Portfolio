@@ -235,7 +235,7 @@ export default function ContactSection() {
 
             {/* Heading */}
             <h2
-              className="text-4xl sm:text-5xl md:text-6xl font-medium text-foreground dark:text-foreground leading-normal mb-6"
+              className="text-4xl sm:text-5xl md:text-6xl font-semibold text-foreground dark:text-foreground leading-normal mb-6"
               style={{ fontFamily: "var(--font-poppins)" }}
             >
               Get in Touch

@@ -42,10 +42,10 @@ export default function FaqSection() {
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-[400px_1fr] gap-8 lg:gap-16 items-center">
           {/* Left Sider */}
-          <div className="space-y-4">
+          <div className="space-y-4 text-center lg:text-start px-4 sm:px-6 lg:px-8">
             {/* Heading */}
             <h2
-              className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground dark:text-foreground leading-tight"
+              className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground dark:text-foreground leading-tight mb-6"
               style={{ fontFamily: "var(--font-poppins)" }}
             >
               {faqsData.heading}

@@ -433,7 +433,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-border/30 dark:border-border/30 py-6">
+        <div className="border-t-0 lg:border-t border-border/30 dark:border-border/30 py-6">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <div className="text-sm text-muted dark:text-muted text-center md:text-left">
               <p className="flex items-center justify-center md:justify-start gap-1">

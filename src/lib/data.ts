@@ -166,44 +166,50 @@ export const servicesData = {
 export const processData = {
   heading: "My Development Process",
   subHeading:
-    "A structured and transparent workflow to deliver scalable, high-quality digital solutions.",
+    "A clear, structured workflow focused on building scalable and high-quality digital products.",
 
   steps: [
     {
       id: 1,
       title: "Discovery & Requirements",
       description:
-        "Understanding business goals, target audience, and technical requirements to define a clear project scope.",
+        "I start by understanding your business goals, target users, and technical needs. Through discussions and research, I define a clear project scope and ensure the solution aligns with your vision from day one.",
+      tags: ["Research", "Requirements", "Strategy", "Planning"],
     },
     {
       id: 2,
       title: "Planning & System Design",
       description:
-        "Creating wireframes, user flows, and selecting the right tech stack for a scalable architecture.",
+        "I design user flows, wireframes, and system architecture while selecting the most suitable tech stack. This phase results in a clear roadmap, scalable architecture, and well-defined milestones.",
+      tags: ["System Design", "Architecture", "Tech Stack", "Roadmap"],
     },
     {
       id: 3,
       title: "Development",
       description:
-        "Building frontend and backend features using modern frameworks with clean, maintainable code.",
+        "I build clean, scalable, and production-ready applications using modern frameworks and best practices. Frontend and backend components are developed with a strong focus on performance, security, and maintainability.",
+      tags: ["Frontend", "Backend", "APIs", "Clean Code"],
     },
     {
       id: 4,
       title: "Testing & Quality Assurance",
       description:
-        "Thorough testing to ensure performance, security, and a bug-free user experience.",
+        "I thoroughly test the application to ensure reliability, performance, and security. Bugs are identified early through automated and manual testing across devices and browsers.",
+      tags: ["Testing", "Performance", "Security", "QA"],
     },
     {
       id: 5,
       title: "Deployment",
       description:
-        "Deploying applications to production with optimized configurations and cloud platforms.",
+        "After testing, I deploy the application to secure, scalable cloud environments with proper configurations, monitoring, and CI/CD pipelines for smooth production releases.",
+      tags: ["Deployment", "CI/CD", "Cloud", "DevOps"],
     },
     {
       id: 6,
       title: "Maintenance & Support",
       description:
-        "Providing ongoing updates, improvements, and support to keep the product reliable and scalable.",
+        "Post-launch, I provide ongoing support, performance monitoring, updates, and feature enhancements to ensure long-term stability and scalability.",
+      tags: ["Maintenance", "Monitoring", "Scaling", "Support"],
     },
   ],
 };
@@ -448,7 +454,7 @@ export const testimonialsData = {
       feedback:
         "Aashir handled both backend and frontend with precision. The project was delivered on time and exceeded expectations.",
       rating: 5,
-      avatar: "/testimonials/linkedin.svg",
+      avatar: "/testimonials/fiverr.svg",
     },
     {
       id: 4,
@@ -458,7 +464,7 @@ export const testimonialsData = {
       feedback:
         "Aashir has a strong eye for both performance and design. He built a fast, modern website that significantly improved our online presence.",
       rating: 5,
-      avatar: "/testimonials/upwork.svg",
+      avatar: "/testimonials/freelancer.svg",
     },
     {
       id: 5,
@@ -468,7 +474,7 @@ export const testimonialsData = {
       feedback:
         "The automation and backend systems Aashir implemented saved us hours of manual work. Reliable, skilled, and easy to communicate with.",
       rating: 5,
-      avatar: "/testimonials/twitter.svg",
+      avatar: "/testimonials/x.svg",
     },
     {
       id: 6,

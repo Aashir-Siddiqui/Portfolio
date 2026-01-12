@@ -85,7 +85,7 @@ export default function ProjectsSection() {
             className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light text-foreground dark:text-foreground mb-6 leading-tight"
             style={{ fontFamily: "var(--font-poppins)" }}
           >
-            <span className="font-medium text-foreground dark:text-foreground leading-normal"
+            <span className="font-semibold text-foreground dark:text-foreground leading-normal"
               style={{ fontFamily: "var(--font-poppins)" }}>
               {projectsData.heading}
             </span>

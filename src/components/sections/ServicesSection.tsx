@@ -58,13 +58,11 @@ export default function ServicesSection() {
             </div>
           </div>
 
-          <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light text-foreground dark:text-foreground mb-6 leading-tight">
-            <span
-              className="font-medium text-foreground dark:text-foreground leading-normal"
-              style={{ fontFamily: "var(--font-poppins)" }}
-            >
-              {servicesData.heading}
-            </span>
+          <h2
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl mb-6 font-semibold text-foreground dark:text-foreground leading-normal"
+            style={{ fontFamily: "var(--font-poppins)" }}
+          >
+            {servicesData.heading}
           </h2>
           <p className="text-base sm:text-lg md:text-xl text-muted dark:text-muted max-w-3xl mx-auto leading-relaxed">
             {servicesData.subHeading}

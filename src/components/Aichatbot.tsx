@@ -314,7 +314,7 @@ export default function AIChatbot() {
           <div className="absolute inset-0 flex items-center justify-center">
             <div
               className="absolute w-12 h-12 rounded-full border-2 border-primary/30 animate-ping"
-              style={{ animationDuration: "2s" }}
+              style={{ animationDuration: "1.5s" }}
             />
           </div>
 

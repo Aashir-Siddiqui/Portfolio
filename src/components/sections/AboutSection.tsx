@@ -27,7 +27,7 @@ export default function AboutSection() {
         <div className="text-center mb-16">
           <div className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light mb-6">
             <span
-              className="font-medium text-foreground dark:text-foreground leading-normal"
+              className="font-semibold text-foreground dark:text-foreground leading-normal"
               style={{ fontFamily: "var(--font-poppins)" }}
             >
               About Me

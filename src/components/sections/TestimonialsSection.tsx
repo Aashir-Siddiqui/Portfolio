@@ -66,7 +66,7 @@ export default function TestimonialsSection() {
         {/* Header */}
         <div className="text-center mb-16">
           <h2
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground dark:text-foreground leading-normal mb-6"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold text-foreground dark:text-foreground leading-normal mb-6"
             style={{ fontFamily: "var(--font-poppins)" }}
           >
             {testimonialsData.heading}
@@ -163,7 +163,7 @@ function TestimonialCard({ testimonial }: TestimonialCardProps) {
         {/* Top Section - Client Info */}
         <div className="flex items-start gap-4 mb-6 flex-shrink-0">
           <div className="relative flex-shrink-0">
-            <div className="relative w-16 h-16 flex items-center justify-center overflow-hidden p-3">
+            <div className="relative w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center overflow-hidden p-0 sm:p-1">
               <Image
                 src={testimonial.avatar}
                 alt={testimonial.name}
