@@ -94,7 +94,7 @@ export default function HeroSection() {
               <span className="text-primary font-medium">Developer</span>
               <br />&{" "}
               <span className="text-primary font-medium">
-                Creative Engineer
+                Gen AI Engineer
               </span>
             </h1>
 

@@ -1,5 +1,5 @@
 @import "tailwindcss";
-@plugin "lightswind/plugin";
+/* @plugin "lightswind/plugin"; */
 
 :root {
   /* Light Mode Colors (Default) */

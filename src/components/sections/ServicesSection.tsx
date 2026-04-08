@@ -92,7 +92,7 @@ function ServiceCard({
 
   return (
     <div
-      className="group relative h-full bg-surface/30 dark:bg-surface/30 backdrop-blur-xl border border-border/30 dark:border-border/30 rounded-xl p-6 lg:p-8 transition-all duration-500 hover:border-primary/50 dark:hover:border-primary/50"
+      className="group relative h-full bg-surface/30 dark:bg-surface/30 backdrop-blur-xl border border-border/30 dark:border-border/30 rounded-2xl p-6 lg:p-8 transition-all duration-500 hover:border-primary/50 dark:hover:border-primary/50"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       style={{

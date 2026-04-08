@@ -68,6 +68,16 @@ export const allSkills = [
   { id: "40", name: "Git", logo: "/skills/git.svg" },
   { id: "41", name: "Twilio", logo: "/skills/twilio.svg" },
   { id: "42", name: "Github", logo: "/skills/github.svg" },
+  { id: "43", name: "HuggingFace", logo: "/skills/huggingface.svg" },
+  { id: "44", name: "Ollama", logo: "/skills/ollama.svg" },
+  { id: "45", name: "LangChain", logo: "/skills/langchain.svg" },
+  { id: "46", name: "Pydantic", logo: "/skills/pydantic.svg" },
+  { id: "47", name: "Cloudinary", logo: "/skills/cloudinary.svg" },
+  { id: "48", name: "linux", logo: "/skills/linux.svg" },
+  { id: "49", name: "Ubuntu", logo: "/skills/ubuntu.svg" },
+  { id: "50", name: "ChromaDB", logo: "/skills/chroma.svg" },
+  { id: "51", name: "Railway", logo: "/skills/railway.svg" },
+  { id: "52", name: "Render", logo: "/skills/render.svg" },
 ];
 
 export const servicesData = {

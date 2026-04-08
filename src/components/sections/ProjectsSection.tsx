@@ -329,7 +329,7 @@ function ProjectCard({ project }: ProjectCardProps) {
         </h3>
 
         {/* Description - Fixed Height (2 lines on mobile, 3 on desktop) */}
-        <p className="text-xs sm:text-sm text-muted dark:text-muted leading-relaxed line-clamp-2 sm:line-clamp-3 flex-shrink-0 min-h-[2.5rem] sm:min-h-[4rem]">
+        <p className="text-xs sm:text-sm text-muted dark:text-muted leading-relaxed line-clamp-2 sm:line-clamp-3 flex-shrink-0 min-h-[4rem]">
           {project.description}
         </p>
 

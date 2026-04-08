@@ -54,7 +54,7 @@ const ProcessItem: React.FC<ProcessItemProps> = ({ step, index, isLast }) => {
         {/* Vertical line */}
         {!isLast && (
           <div
-            className="w-[2px] bg-primary dark:bg-primary h-full my-0.5 rounded-full"
+            className="w-[2px] bg-primary dark:bg-primary h-full"
           />
         )}
       </div>
