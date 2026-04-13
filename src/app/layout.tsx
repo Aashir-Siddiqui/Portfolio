@@ -162,6 +162,12 @@ export default function RootLayout({
           href="https://fonts.gstatic.com"
           crossOrigin="anonymous"
         />
+
+        <script
+          defer
+          src="https://cloud.umami.is/script.js"
+          data-website-id="97545cad-53fa-4128-8062-2fa7b8b0dd41"
+        />
       </head>
       <body className={`${roboto.variable} ${poppins.variable} antialiased`}>
         <Provider>{children}</Provider>
